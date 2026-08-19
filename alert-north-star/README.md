@@ -89,11 +89,9 @@ What removal costs and gains (91-100 twin layered onto 101+):
 
 ## 6b. What dwelling-age NOCs and NOEs are actually FOR
 
-Bound cohorts, 90-day window, per 100 bound. NOC sub-reasons from the UW cancellation picklist.
+**How to read the table:** every number is *NOCs per 100 bound policies within 90 days of bind* — so 4.52 means 4.5% of policies got a NOC. Each row splits that total by cancellation reason, and the rows add up to the totals. Raw counts behind the rates: 192 NOCs among 4,244 reviewed 101+ policies; 79 among 1,223 twin policies. The Gap column = the extra NOCs per 100 you'd expect from removing the review with nothing in its place.
 
-**NOC reasons, reviewed 101+ (DAMR) vs its un-reviewed just-under twin (JU = what removal looks like), per 100 bound:**
-
-| Reason | DAMR 101+ | JU 91-100 | Gap (removal cost) |
+| Reason | Reviewed 101+ (per 100) | Unreviewed twin 91-100 (per 100) | Gap (removal cost) |
 |---|---|---|---|
 | Condition - General | 2.71 (60% of NOCs) | 2.86 (44%) | +0.15 |
 | Liability Hazard | 0.90 | 1.14 | +0.24 |
@@ -109,9 +107,9 @@ What this says:
 - **~3/4 of the incremental NOCs from removal (1.48 of the 1.94/100 gap) sit in categories the three levers directly address**: Condition-Roof (+0.70 → the roof-exclusion aperture), Ineligible Risk + business-on-premises + named-insured (+0.58 → the soft checks / attestations), Misrepresentation (+0.20 → data accuracy). The review's actual protective value is concentrated exactly where the automation plan already points.
 - Liability Hazard (~20% of NOCs) is mostly inspection-found and not review-preventable either (0.90 vs 1.14).
 
-**NOE composition (UW-corrective endorsements, 90d):** ~90% are exclusion changes, and **the roof-surfacing exclusion alone is 53% (DAMR) / 59% (JU) of all UW NOEs**. Attribute corrections are only ~10% (mostly property_type). So the #1 NOE cause post-bind IS the roof-exclusion job: the aperture expansion attacks the dominant NOE lane directly.
+**NOE composition (UW-corrective endorsements, 90d):** ~90% are exclusion changes, and **the roof-surfacing exclusion alone is 53% (reviewed book) / 59% (twin) of all UW NOEs**. Attribute corrections are only ~10% (mostly property_type). So the #1 NOE cause post-bind IS the roof-exclusion job: the aperture expansion attacks the dominant NOE lane directly.
 
-Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the selection-effect floor from §7 still applies.
+Caveats: small n per cell (the twin's roof row = 12 events), 90-day window only, and the selection-effect floor from §7 still applies.
 
 **Why the review misses the residual:**
 
