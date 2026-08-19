@@ -494,29 +494,34 @@
     <div class="wrap">
       <h2>How we do each job ourselves</h2>
       <div class="jobs">
-        <div class="job">
+        <div class="job fixgreen">
           <div class="fix-head">Approve touching nothing</div>
           <h3>Auto-approve</h3>
           <p>Once the other three jobs run, the system approves these itself. This one is free at the end.</p>
         </div>
-        <div class="job">
+        <div class="job fixgreen">
           <div class="fix-head">Add the roof exclusion &middot; 25.3%</div>
           <h3>The dial</h3>
           <p>The photo model already applies the exclusion, just too narrowly: 3.5 per 100 vs the underwriters' 21.3. Lower the score bar for old homes and let underwriting pick the setting: score 90+ catches 33% of their hand-applied exclusions (1.3 extra per catch), 60+ catches 84% (2.4 extra per catch). Already live nationwide; Texas has the longest track record.</p>
         </div>
-        <div class="job">
+        <div class="job fixgreen">
           <div class="fix-head">Fix our own data &middot; 28.2%</div>
           <h3>Buy the data</h3>
           <p>Buy the data underwriters look up by hand (LandGlide, county records). A data source trial is running now. Most fixes land on pre-fill the agent never touched, so a better feed means fewer fixes needed at all, and the $310K per year of corrections happens before bind instead of in review.</p>
         </div>
-        <div class="job">
+        <div class="job fixgreen">
           <div class="fix-head">Run the soft checks &middot; 8.4% rejected</div>
           <h3>Two paths</h3>
-          <p>Pick one now and swap later. Path A, available today: ask the agent directly in the quote flow. Is it a historic district? Commercial? Sober living? Agents prefer answering questions over getting a referral. Path B, around October: the Pluribus team's automated signals detect these without asking. Start with A, swap in B when it lands.</p>
+          <p>Pick one now, swap later:</p>
+          <ul class="paths">
+            <li><strong>Path A, today:</strong> ask the agent in the quote flow. Historic district? Commercial? Sober living? Agents prefer questions over a referral.</li>
+            <li><strong>Path B, ~October:</strong> the Pluribus team's automated signals detect these without asking.</li>
+            <li><strong>Start with A, swap in B when it lands.</strong></li>
+          </ul>
         </div>
       </div>
       <div class="punch">
-        <p><strong>The goal:</strong> &lsquo;approve, touching nothing&rsquo; goes <span class="move">from <span class="mono">46.5%</span> to <span class="mono">100%</span></span>. The underwriter opens the referral and finds nothing left to do, because the system already did it. That is how we know the fixes work, while the alert is still on and nothing can go wrong.</p>
+        <p><strong>The goal:</strong> &lsquo;approve, touching nothing&rsquo; goes <span class="move">from <span class="mono">46.5%</span> to <span class="mono">90%</span> or better</span>. The underwriter opens the referral and finds nothing left to do, because the system already did it. That is how we know the fixes work, while the alert is still on and nothing can go wrong.</p>
       </div>
     </div>
   </section>
@@ -526,12 +531,12 @@
     <div class="wrap">
       <h2>The underwriter has been protecting the book</h2>
       <figure>
-        <p class="lede" style="margin-bottom: 0.9rem;">NOCs per 100 bound policies within 90 days: homes without the review (the sister cohort) vs homes with it (the reviewed book).</p>
+        <p class="lede" style="margin-bottom: 0.9rem;">NOCs per 100 bound policies within 90 days: 91 to 100 year old homes, which never had the review, vs 101+ year old homes, which all got it.</p>
         <svg viewBox="0 0 1000 398" role="img" aria-label="Paired bars compare cancellation letters per hundred bound policies, by reason, for homes without the review and homes with it. Every row improves with the review, the first three rows improve the most, and the general condition row barely moves.">
-          <rect x="270" y="8" width="14" height="14" rx="3" class="f-cost"></rect>
-          <text x="292" y="20" class="svg-body f-sec" font-size="13">without the review</text>
-          <rect x="470" y="8" width="14" height="14" rx="3" class="f-accent"></rect>
-          <text x="492" y="20" class="svg-body f-sec" font-size="13">with the review</text>
+          <rect x="150" y="8" width="14" height="14" rx="3" class="f-cost"></rect>
+          <text x="172" y="20" class="svg-body f-sec" font-size="13">without the review (91 to 100 year old homes)</text>
+          <rect x="560" y="8" width="14" height="14" rx="3" class="f-accent"></rect>
+          <text x="582" y="20" class="svg-body f-sec" font-size="13">with the review (101+ year old homes)</text>
 
           <line x1="470" y1="38" x2="470" y2="390" class="s-line" stroke-width="1"></line>
           <line x1="670" y1="38" x2="670" y2="390" class="s-line" stroke-width="1"></line>
