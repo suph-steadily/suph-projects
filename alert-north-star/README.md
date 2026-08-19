@@ -1,6 +1,9 @@
-# Alert North Star
+# Zero Alerts
+
+*(formerly "Alert North Star" — renamed 8/19: alerts aren't the north star, growth without agent friction is; zero underwriting alerts is how we measure it)*
 
 **Owner:** Suph · **Started:** Aug 2026 · **Status:** Active, framing stage
+**Sub-projects:** [The Weighing Machine](weighing-machine/REQUIREMENTS.md) (requirements in progress)
 **Last updated:** 2026-08-19 (say-back after Christina walkthrough + meeting record from LaNae 8/18, Julie 8/17, David 8/17, Brent 8/18)
 
 ---
@@ -8,7 +11,7 @@
 ## 1. The North Star
 
 - The North Star is not "zero alerts" for its own sake. It is **growth without agent friction**: grow the business safely, with no underwriting roadblocks in the agent's path.
-- Zero underwriting alerts is the measurable expression of that. Alerts protect the book, but they lose binds: ~70-77% of quotes drop off when the dwelling age alert fires, and only ~15% of referred quotes bind.
+- Zero underwriting alerts is the measurable expression of that. Alerts protect the book, but they lose binds: on age-alert-only quotes, **55% are never referred at all** (the roadblock kills them before any human looks). Of 100 such quotes, ~63 die with nobody ever looking and only ~16 bind. Referrals that do get approved issue at ~46-51%, so the loss is upstream of the underwriter, not in the decision. *(Validated 8/19 against the Pre-Bind Review Findings and Two Houses artifacts; the earlier "70-77% drop off / 15% of referred bind" was a mis-dictation.)*
 - Leadership already agrees on direction, in slightly different words:
   - **Christine:** zero underwriting alerts; the real fix may be better upstream pre-fill data, not per-alert patches.
   - **LaNae:** zero underwriting alerts for older dwellings. Strong preference to say no or add friction upfront rather than cancel post-bind.
@@ -47,31 +50,32 @@ Status after the LaNae 8/18 meeting, this is no longer a mystery project:
 
 ## 4. Worked example: dwelling age (weighing machine v0)
 
-What underwriters do with the 101+ alert today:
+What underwriters do with the 101+ alert today (n=10,428 analyzable approvals, validated 8/19 against the Findings artifact):
 
-- **~45%: nothing.** Approve with no changes. (Rubber stamp.)
-- **~15%: add a roof exclusion.**
-- **~10%: roof exclusion plus something else.**
-- **~30%: data corrections.** Six property attributes (square footage, unit count, etc.) account for ~90% of the edits.
-- **Soft checks:** historic district, commercial use, sober-living. Accept or reject on those grounds.
+- **46.5%: nothing.** Approve with no change of any kind. (Rubber stamp.)
+- **14.0%: roof-surfacing exclusion only.**
+- **11.3%: roof exclusion plus something else** (1.1% roof detail corrections, 5.5% property corrections, 4.7% coverage changes).
+- **28.2%: changes without a roof exclusion** (mostly data corrections). Six property fields carry ~90% of the corrections (~95% of pure attribute edits).
+- **8.4% of asked referrals are rejected** — the gate's real defense; 82% of rejections are commercial / historic / unit-count, not age itself. "Real judgment" is ~11% of approvals.
 
-What removal costs and gains (91-100 cohort layered onto 101+):
+What removal costs and gains (91-100 twin layered onto 101+, validated against Two Houses / The Dwelling Age Plan):
 
-- **~115 more binds/month, ~25 more NOCs/month, ~30 more NOEs/month.** NOC rate roughly doubles (~3.9% → ~7.5-8%).
-- **~$26K/month (~$310K/yr, ~$67/policy)** in premium-bearing corrections UWs make at review time would go un-captured. Note: a separate $1.4M annual figure is floating around; these do NOT reconcile yet ($26K x 12 ≈ $310K). Resolve before Thursday.
+- **~+115 binds/month** (range +50 to +175; top-7-states cut = +107), **~+25 NOCs/month** (range +10 to +40), **~+30 UW corrective endorsements/month**, and ~2,200 forced UW reviews/month eliminated.
+- **Rates, correctly labeled:** NOC 4.5% → 6.5% (+1.9pt, ~43% lift); UW-fix rate 3.9% → 7.5% (+3.6pt, ~2x). The earlier "NOC 3.9→7.5-8" swapped the two metrics. Caveat: the twin's 6.5 is a floor — the 101+ book averages 117 years, and trend projection gives an un-reviewed NOC rate of 7-11 per 100.
+- **~$26K/month premium from UW corrections** would go un-captured (deliberately bound-only; fixes raise price 3.4x more often than they lower it; ~$3,000 per 100 bound policies, never recovered at renewal — the "$67/policy" figure appears in no artifact). The $1.4M vs $310K annual figures are being reconciled (agent in flight).
 - Evidence the alert adds little risk-screening value: the pre-alert cohort (pre-March 2025) and the 95-year-old cohort both behave identically to the general population.
 
 ## 5. The levers (the UW's jobs, plus one alternative)
 
 | Lever | What UWs do | Gap today | What it requires |
 |---|---|---|---|
-| **Roof exclusion aperture** | Apply roof exclusion to ~20% of 101+ dwellings | Auto-RSE (imagery + roof score, age is NOT an input) fires on only **3.5%** of them; model targets bottom 5% overall | Expand threshold with Curry: bottom 5% → **bottom 20%**, longer-term bottom 40% for older homes. Live nationwide ~2 weeks, 7 states ~2 months. **Texas has the longest bake, check it first.** |
-| **Pre-fill data quality** | Correct our own pre-filled attributes by hand (LandGlide, Zillow, county records) | Agents game pre-fills (about -$200 premium); UWs are ~4x more likely to re-correct agent-touched values (adding it back plus ~$30). Roof type: 48% of final values differ from both pre-fill and agent input | Source data the way UWs do. Build the case for LandGlide or equivalent API, starting with 101+ homes. Bake-off underway (Smarty today, price SmartSource). |
+| **Roof exclusion aperture** | Hand-apply the exclusion to **21.3 per 100** of 101+ referrals (vs. the robot's 3.5 — a 6:1 split; n=1,144, 7 states May-Jun) | Auto-RSE (imagery + roof score; age is NOT an input) actions only ~4% of old-home referrals (3.8% exclude + 0.1% alert — "bottom 5%" appears in no artifact). UWs start excluding around score 69, median case 83 | Lower the score bar for old homes; **underwriting sets the dial.** Priced dial: score 90+ catches 33% of UW hand-applies at 1.3 over-applies per catch · 80+ = 57% at 1.8 · 70+ = 74% at 2.1 · 60+ = 84% at 2.4. Live nationwide ~2 weeks, 7 states ~2 months. **Texas has the longest bake, check it first.** |
+| **Pre-fill data quality** | Correct our own pre-filled attributes by hand (LandGlide, Zillow, county records) | UWs correct agent-touched fields **2-6x more** than untouched pre-fill (sq ft 25.3% vs 4.5% = 5.7x; year built 5.6x; roof/construction 1.4-1.6x; property type flat) — yet **65-79% of UW fix volume lands on pre-fill the agent never touched**. Gaming signature: 210 quotes (~2%) drop-then-UW-restore, median drop $532, claw-back $227 | Source data the way UWs do. Build the case for LandGlide or equivalent API, starting with 101+ homes. Bake-off underway (Smarty today, price SmartSource). |
 | **Commercial / historic / sober-living** | Soft-check and accept/reject | Manual today | Pluribus/Spotlight LLM historic-district signal expected **~October** (on hold until then). Alternative: agent attestation questions in the flow, Brent says agents prefer upfront questions over UW referral. |
 | **Premium age modifier (alternative)** | n/a | Instead of fixing every attribute, price the uncertainty: ~10% bump for 100+ homes, reduced as accuracy improves | Actuarial input ("what rate adjustment maintains loss ratio if corrections never happen?"). Admitted states need rate filings, so not a fast follow. |
 
-- If the first three land, expect rubber-stamp to go from ~45% to ~80%.
-- Correction from my dictated version: the auto exclusion rate on 101+ is **3.5%**, not "bottom 5%." The 5% is the model's overall aperture; on this cohort it fires 3.5% vs. UWs' ~20%.
+- If the first three land, expect rubber-stamp to go from 46.5% toward ~80% (the ~80% is a projection, not a measured number).
+- All figures in this section validated 8/19 against the source artifacts (Why Old Roofs Slip Through, pre-fill flip validation, What Must Be True). Two dictated numbers corrected: "UWs apply ~20%" → 21.3 per 100, and "model targets bottom 5%" → ~4% actioned.
 
 ## 6. Why NOCs and NOEs are the sensitive weights (Darren + LaNae)
 
@@ -117,11 +121,12 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 - **$1.4M vs. $310K** premium-recapture figures do not reconcile yet. Fix before Thursday.
 - **Reference points to reuse:** NOC/NOE baseline ramps ~+22.8% per decade of dwelling age (30-60yr baseline: NOC 2.75 / NOE 5.11 per 100). Foregone premium from un-run UW edits ~$3,034 per 100 bound, ~0% recovered at renewal.
 
-## 8. The proposed test (Julie's design + David's sequencing)
+## 8. The test that probably isn't happening (updated 8/19)
 
-- **Design:** 50/50 A/B in the top 7 states (bind-to-NOC ratio above 8.8:1 for 90-100yr homes; Illinois example: 21% bind rate). ~30-60 days for significance. Not a full toggle.
-- **Framing (Julie):** don't ask underwriting yes/no. Ask them to help **size the risk**: here's the upside, here's the bounded downside. The business decision then goes to Darren or Christine. Include roof-exclusion progress as a mitigant.
-- **Sequencing (David):** the bind lift is proven, so ask LaNae what NOC/NOE increase she'd accept **before** running the test. If the answer is effectively "none," skip the test and work the levers first.
+- **The 7-state 50/50 test is likely off.** "Pick seven states and eat the NOCs" has no team appetite — a live test means real agents get real NOCs before we can size the risk.
+- **What survives from Julie's advice is the framing, and it points at the machine:** don't ask underwriting yes/no. Help them **size the risk** — upside, bounded downside — and route the business decision to Darren or Christine. Sizing the risk IS the weighing machine.
+- **So the sequence inverts:** the weighing machine comes FIRST. Weigh → present the sized risk → decision-makers pick a tolerance → automate the levers that beat it → remove. A live test becomes optional confirmation at the end, not the discovery step.
+- Reference, if a test ever revives: 50/50 in the top 7 states (bind-to-NOC above 8.8:1 for 90-100yr homes; Illinois 21% bind), ~30-60 days for significance.
 
 ## 9. Open questions
 
