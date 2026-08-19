@@ -19,9 +19,9 @@
 ## 2. The synthesis (where this actually stands)
 
 - The two threads are one loop, not two projects. **The weighing machine is the scale; automating the underwriter's jobs moves the weights.** Weigh the alert → if too expensive to remove, automate the UW job driving the cost → re-weigh → kill it.
-- Alignment is not the blocker. Nobody has named a **price**. There is no agreed bind-to-knock ratio, and LaNae has never been asked what knock increase she would accept. That number is the gate for everything else.
-- Per David: **the bind lift is already proven.** The entire open question is the cost side (knocks, NOEs, lost premium, agent attrition). So the weighing machine is really a cost-pricing machine.
-- One correction to how I said it out loud: "removing the alert has no NOC/NOE impact, only upside" is **not what the data says**. Raw removal roughly doubles the knock rate (~3.9% → ~7.5-8%). The defensible claim is: **with the three levers implemented, incremental knocks approach zero** because we automate what the UW was doing. Thursday's proposal has to say the second version, not the first.
+- Alignment is not the blocker. Nobody has named a **price**. There is no agreed bind-to-NOC ratio, and LaNae has never been asked what NOC increase she would accept. That number is the gate for everything else.
+- Per David: **the bind lift is already proven.** The entire open question is the cost side (NOCs, NOEs, lost premium, agent attrition). So the weighing machine is really a cost-pricing machine.
+- One correction to how I said it out loud: "removing the alert has no NOC/NOE impact, only upside" is **not what the data says**. Raw removal roughly doubles the NOC rate (~3.9% → ~7.5-8%). The defensible claim is: **with the three levers implemented, incremental NOCs approach zero** because we automate what the UW was doing. Thursday's proposal has to say the second version, not the first.
 - The rubber-stamp rate (~45% today, ~80% if the levers land) is a **gauge** of residual UW value, not the finish line. At 80%, the machine's question becomes: does the remaining 20% of interventions beat the friction cost imposed on 100% of quotes?
 - The machine works both directions: alerts to **remove** and proposed alerts to **add**.
 
@@ -36,12 +36,12 @@ What it must output for any alert:
 
 Status after the LaNae 8/18 meeting, this is no longer a mystery project:
 
-- **Partner:** David Curry (or the new data scientist) builds the bind/knock trade-off model with me.
-- **Named inputs:** bind LTV, knock cost / agent impact, and UW premium contribution per alert.
-- **Output shape:** a shared threshold any alert can be evaluated against (e.g., "100:1 bind-to-knock" as an illustrative bar).
+- **Partner:** David Curry (or the new data scientist) builds the bind/NOC trade-off model with me.
+- **Named inputs:** bind LTV, NOC cost / agent impact, and UW premium contribution per alert.
+- **Output shape:** a shared threshold any alert can be evaluated against (e.g., "100:1 bind-to-NOC" as an illustrative bar).
 - **Form:** start as a repeatable analysis template, not a UI project. `tradeoff.py` in scratch-darren is the first module. Decide doc vs. script vs. tool after running it manually 2-3 times.
-- Context for urgency: the overall knock rate is already creeping toward 10%, so appetite for more knocks is limited.
-- Still unpriced: the four weights from the What Must Be True framing, including agent-loss from knock experience (partially sized now, see §6).
+- Context for urgency: the overall NOC rate is already creeping toward 10%, so appetite for more NOCs is limited.
+- Still unpriced: the four weights from the What Must Be True framing, including agent-loss from NOC experience (partially sized now, see §6).
 
 ## 4. Worked example: dwelling age (weighing machine v0)
 
@@ -55,7 +55,7 @@ What underwriters do with the 101+ alert today:
 
 What removal costs and gains (91-100 cohort layered onto 101+):
 
-- **~115 more binds/month, ~25 more knocks/month, ~30 more NOEs/month.** Knock rate roughly doubles (~3.9% → ~7.5-8%).
+- **~115 more binds/month, ~25 more NOCs/month, ~30 more NOEs/month.** NOC rate roughly doubles (~3.9% → ~7.5-8%).
 - **~$26K/month (~$310K/yr, ~$67/policy)** in premium-bearing corrections UWs make at review time would go un-captured. Note: a separate $1.4M annual figure is floating around; these do NOT reconcile yet ($26K x 12 ≈ $310K). Resolve before Thursday.
 - Evidence the alert adds little risk-screening value: the pre-alert cohort (pre-March 2025) and the 95-year-old cohort both behave identically to the general population.
 
@@ -71,23 +71,24 @@ What removal costs and gains (91-100 cohort layered onto 101+):
 - If the first three land, expect rubber-stamp to go from ~45% to ~80%.
 - Correction from my dictated version: the auto exclusion rate on 101+ is **3.5%**, not "bottom 5%." The 5% is the model's overall aperture; on this cohort it fires 3.5% vs. UWs' ~20%.
 
-## 6. Why knocks are the sensitive weight (Darren + LaNae)
+## 6. Why NOCs and NOEs are the sensitive weights (Darren + LaNae)
 
-- **Darren's early data: 3 knocks = you lose the agent permanently** (not just the policy). First knock that proceeds to cancellation correlates with **~20% drop in future buys from that agent**. Early data points, not published figures.
-- **LaNae's two reasons knocks sting:** the bait-and-switch perception (the deal changed after bind) and the remediation burden (legally required to specify exactly what must be fixed).
+- **NOC and NOE are both post-bind letters, and both are bad experiences.** The deal changes after it closed: NOC cancels the policy, NOE forces a coverage change the customer didn't ask for. They are jointly the thing we are trying to mitigate; NOC is the more severe, but they sit in the same bait-and-switch category and both count on the cost side of the weighing machine.
+- **Darren's early data: 3 NOCs = you lose the agent permanently** (not just the policy). First NOC that proceeds to cancellation correlates with **~20% drop in future buys from that agent**. Early data points, not published figures.
+- **LaNae's two reasons NOCs sting:** the bait-and-switch perception (the deal changed after bind) and the remediation burden (legally required to specify exactly what must be fixed).
 - UAR was tried as a pre-cancellation softener and abandoned: agents read it as a cancellation anyway.
-- We know the three-strike rule of thumb but not the full underlying mechanism. The scratch-darren curves (74% of NOCs cure; cured knocks cost ~0 to -2% per event vs. cancellations at -20% front-loaded) are the start of the evidence.
-- The optimistic logic: if we do the UW's jobs really well, **the knock rate should not change** relative to today. The same interventions happen, just automated pre-bind. Residual knocks exist today with a UW in every single 101+ journey, so they are a standing optimization target **whether or not the alert lives.**
+- We know the three-strike rule of thumb but not the full underlying mechanism. The scratch-darren curves (74% of NOCs cure; cured NOCs cost ~0 to -2% per event vs. cancellations at -20% front-loaded) are the start of the evidence.
+- The optimistic logic: if we do the UW's jobs really well, **the NOC rate should not change** relative to today. The same interventions happen, just automated pre-bind. Residual NOCs exist today with a UW in every single 101+ journey, so they are a standing optimization target **whether or not the alert lives.**
 
-## 6b. What dwelling-age knocks and NOEs are actually FOR (answered 8/19)
+## 6b. What dwelling-age NOCs and NOEs are actually FOR (answered 8/19)
 
 Pulled from the 8/16 snapshot tables (bound cohorts, 90-day window; NOC sub-reasons from the Salesforce UW cancellation picklist; totals reconcile exactly with the published 4.52 vs 6.46 NOC/100 pair).
 
-**Knock (NOC) reasons, reviewed 101+ (DAMR) vs its un-reviewed just-under twin (JU = what removal looks like), per 100 bound:**
+**NOC (NOC) reasons, reviewed 101+ (DAMR) vs its un-reviewed just-under twin (JU = what removal looks like), per 100 bound:**
 
 | Reason | DAMR 101+ | JU 91-100 | Gap (removal cost) |
 |---|---|---|---|
-| Condition - General | 2.71 (60% of knocks) | 2.86 (44%) | +0.15 |
+| Condition - General | 2.71 (60% of NOCs) | 2.86 (44%) | +0.15 |
 | Liability Hazard | 0.90 | 1.14 | +0.24 |
 | Condition - Roof | 0.28 | 0.98 | **+0.70** |
 | Ineligible Risk | 0.49 | 0.90 | **+0.41** |
@@ -97,9 +98,9 @@ Pulled from the 8/16 snapshot tables (bound cohorts, 90-day window; NOC sub-reas
 
 What this says:
 
-- **The biggest knock bucket (~60% on reviewed) is Condition - General**: physical-condition findings from the post-bind inspection (deterioration, debris, etc.). The UW review barely moves it (2.71 vs 2.86). No amount of pre-bind data automation prevents these; that is the irreducible knock floor, and the review was never protecting against it.
-- **~3/4 of the incremental knocks from removal (1.48 of the 1.94/100 gap) sit in categories the three levers directly address**: Condition-Roof (+0.70 → the roof-exclusion aperture), Ineligible Risk + business-on-premises + named-insured (+0.58 → the soft checks / attestations), Misrepresentation (+0.20 → data accuracy). The review's actual protective value is concentrated exactly where the automation plan already points.
-- Liability Hazard (~20% of knocks) is mostly inspection-found and not review-preventable either (0.90 vs 1.14).
+- **The biggest NOC bucket (~60% on reviewed) is Condition - General**: physical-condition findings from the post-bind inspection (deterioration, debris, etc.). The UW review barely moves it (2.71 vs 2.86). No amount of pre-bind data automation prevents these; that is the irreducible NOC floor, and the review was never protecting against it.
+- **~3/4 of the incremental NOCs from removal (1.48 of the 1.94/100 gap) sit in categories the three levers directly address**: Condition-Roof (+0.70 → the roof-exclusion aperture), Ineligible Risk + business-on-premises + named-insured (+0.58 → the soft checks / attestations), Misrepresentation (+0.20 → data accuracy). The review's actual protective value is concentrated exactly where the automation plan already points.
+- Liability Hazard (~20% of NOCs) is mostly inspection-found and not review-preventable either (0.90 vs 1.14).
 
 **NOE composition (UW-corrective endorsements, 90d):** ~90% are exclusion changes, and **the roof-surfacing exclusion alone is 53% (DAMR) / 59% (JU) of all UW NOEs**. Attribute corrections are only ~10% (mostly property_type). So the #1 NOE cause post-bind IS the roof-exclusion job: the aperture expansion attacks the dominant NOE lane directly.
 
@@ -107,24 +108,24 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 
 ## 7. Missing dots and risks (the honest list)
 
-- **Selection effect.** Cohort layering assumes the same population applies after removal. Alerts also deter bad risks from submitting. The knock projection is a **floor**, not an estimate.
+- **Selection effect.** Cohort layering assumes the same population applies after removal. Alerts also deter bad risks from submitting. The NOC projection is a **floor**, not an estimate.
 - **The 45% do-nothing is not free.** Part of its value is deterrence, and the catch rate on intervened policies is real (6.8% vs. 3.3% baseline). Price it, don't dismiss it.
-- **Loss ratio is lagging.** Counts (binds, knocks, NOEs, cancellations) are the leading proxies, which is why the machine is denominated in them.
+- **Loss ratio is lagging.** Counts (binds, NOCs, NOEs, cancellations) are the leading proxies, which is why the machine is denominated in them.
 - **Terminology is unresolved.** NOC vs. NOE vs. UAR get used loosely (an NOE rate can exceed the NOC rate, they are separate letters). Sync definitions with LaNae before reporting numbers. All three are letters and post-bind.
 - **$1.4M vs. $310K** premium-recapture figures do not reconcile yet. Fix before Thursday.
-- **Reference points to reuse:** knock/NOE baseline ramps ~+22.8% per decade of dwelling age (30-60yr baseline: NOC 2.75 / NOE 5.11 per 100). Foregone premium from un-run UW edits ~$3,034 per 100 bound, ~0% recovered at renewal.
+- **Reference points to reuse:** NOC/NOE baseline ramps ~+22.8% per decade of dwelling age (30-60yr baseline: NOC 2.75 / NOE 5.11 per 100). Foregone premium from un-run UW edits ~$3,034 per 100 bound, ~0% recovered at renewal.
 
 ## 8. The proposed test (Julie's design + David's sequencing)
 
-- **Design:** 50/50 A/B in the top 7 states (bind-to-knock ratio above 8.8:1 for 90-100yr homes; Illinois example: 21% bind rate). ~30-60 days for significance. Not a full toggle.
+- **Design:** 50/50 A/B in the top 7 states (bind-to-NOC ratio above 8.8:1 for 90-100yr homes; Illinois example: 21% bind rate). ~30-60 days for significance. Not a full toggle.
 - **Framing (Julie):** don't ask underwriting yes/no. Ask them to help **size the risk**: here's the upside, here's the bounded downside. The business decision then goes to Darren or Christine. Include roof-exclusion progress as a mitigant.
-- **Sequencing (David):** the bind lift is proven, so ask LaNae what knock/NOE increase she'd accept **before** running the test. If the answer is effectively "none," skip the test and work the levers first.
+- **Sequencing (David):** the bind lift is proven, so ask LaNae what NOC/NOE increase she'd accept **before** running the test. If the answer is effectively "none," skip the test and work the levers first.
 
 ## 9. Open questions
 
-- **The gate:** what knock increase will LaNae accept? Never asked directly.
-- What is one bind worth vs. one knock, in dollars? (Bind LTV, knock cost, agent attrition = the Curry model inputs.)
-- ~~What are 101+ policies actually getting knocked FOR?~~ **Answered 8/19, see §6b.** Headline: ~3/4 of the removal-induced knock increase sits in lever-addressable categories; the dominant knock bucket (Condition - General) was never review-preventable.
+- **The gate:** what NOC increase will LaNae accept? Never asked directly.
+- What is one bind worth vs. one NOC, in dollars? (Bind LTV, NOC cost, agent attrition = the Curry model inputs.)
+- ~~What are 101+ policies actually getting NOC'd FOR?~~ **Answered 8/19, see §6b.** Headline: ~3/4 of the removal-induced NOC increase sits in lever-addressable categories; the dominant NOC bucket (Condition - General) was never review-preventable.
 - What share of NOEs for 90-100yr homes are roof exclusions? If ~50%+, strong case to retarget the model for this cohort now.
 - Does Texas (longest roof-model bake) already show the manual 15% roof-exclusion rate dropping?
 - Once the levers land and rubber-stamp hits ~80%, does the machine say kill? Run it, don't assume.
@@ -135,14 +136,14 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 - [ ] **Thursday 8/20: proposal for the underwriting sync.** Dwelling age as weighing machine v1: bind upside, bounded downside, three levers as mitigants. Framed as risk-sizing, not a yes/no ask. Decision routes to Darren/Christine.
 - [ ] **Ask LaNae her tolerance number** (or make it the explicit ask inside the Thursday proposal).
 - [ ] Reconcile $1.4M vs. $310K before Thursday.
-- [ ] Meet David Curry: scope the bind/knock model (bind LTV, knock cost, UW premium per alert).
+- [ ] Meet David Curry: scope the bind/NOC model (bind LTV, NOC cost, UW premium per alert).
 - [ ] With Curry: expand roof-exclusion threshold to bottom 20% for older dwellings.
-- [ ] Check Texas knock/NOE data for roof-model impact.
-- [x] ~~Pull knock reason codes for the 101+ cohort.~~ Done 8/19 (§6b).
+- [ ] Check Texas NOC/NOE data for roof-model impact.
+- [x] ~~Pull NOC reason codes for the 101+ cohort.~~ Done 8/19 (§6b).
 - [ ] Build the LandGlide (or equivalent) pre-fill sourcing case, starting with 101+ homes; get SmartSource pricing.
 - [ ] Explore the premium age modifier with actuarial.
 - [ ] Review the conditional liability exclusion form (eng + comms lift).
-- [ ] Validate Darren's three-knock rule when his final figures land.
+- [ ] Validate Darren's three-NOC rule when his final figures land.
 
 ---
 
@@ -169,7 +170,7 @@ Other sources:
 
 Meetings (Granola):
 
-- LaNae / Suph, Aug 18 — knock pain, Darren's data, Curry weighing-machine plan
+- LaNae / Suph, Aug 18 — NOC pain, Darren's data, Curry weighing-machine plan
 - Suph / Brent, Aug 18 — AFI benchmark, attestation-questions idea
 - David / Suph, DAMR Alert Test, Aug 17 — bind lift proven, tolerance-first sequencing
 - Julie / Suph, Aug 17 — 50/50 test design, risk-sizing framing, age modifier
