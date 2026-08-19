@@ -1,0 +1,415 @@
+<title>What Must Be True</title>
+<style>
+:root{
+  --glacier:#f4f7f7;
+  --anchor:#1b232b;
+  --slate:#5b6672;
+  --mist:#d7dee0;
+  --spruce:#0e6b5e;
+  --brick:#a8432f;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --glacier:#12171c;
+    --anchor:#e4e9ea;
+    --slate:#98a2ab;
+    --mist:#2a323a;
+    --spruce:#4fb3a4;
+    --brick:#d98270;
+  }
+}
+:root[data-theme="dark"]{
+  --glacier:#12171c;
+  --anchor:#e4e9ea;
+  --slate:#98a2ab;
+  --mist:#2a323a;
+  --spruce:#4fb3a4;
+  --brick:#d98270;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding:60px 24px 100px;
+  background:var(--glacier);
+  color:var(--anchor);
+  font-family:Seravek,"Avenir Next",-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto}
+.disp{font-family:Baskerville,"Palatino Linotype",Palatino,Georgia,serif}
+
+/* header */
+header{margin-bottom:14px}
+.eyebrow{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--spruce);
+}
+h1{
+  font-family:Baskerville,"Palatino Linotype",Palatino,Georgia,serif;
+  font-weight:600;font-size:clamp(34px,6vw,48px);line-height:1.06;
+  letter-spacing:-.01em;text-wrap:balance;margin:12px 0 12px;
+}
+.deck{font-size:17.5px;line-height:1.55;color:var(--slate);max-width:56ch;margin:0}
+.byline{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:11.5px;color:var(--slate);
+  margin-top:22px;padding-top:14px;border-top:1px solid var(--mist);
+}
+
+/* sections with rail */
+section{
+  display:grid;
+  grid-template-columns:84px minmax(0,62ch);
+  column-gap:32px;
+  border-top:1px solid var(--mist);
+  padding-top:30px;
+  margin-top:30px;
+}
+.rail{padding-top:4px;display:flex;flex-direction:column;gap:4px}
+.rail .n{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--spruce);
+}
+.rail .fig{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:11.5px;color:var(--slate);font-variant-numeric:tabular-nums;line-height:1.4;
+}
+.content{display:flex;flex-direction:column;gap:14px;min-width:0}
+h2{
+  font-family:Baskerville,"Palatino Linotype",Palatino,Georgia,serif;
+  font-weight:600;font-size:26px;line-height:1.18;letter-spacing:-.005em;
+  text-wrap:balance;margin:0;
+}
+h3{font-size:15px;font-weight:700;margin:8px 0 0}
+p{margin:0}
+.small{font-size:14px;color:var(--slate)}
+b,strong{font-weight:650}
+.num{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-variant-numeric:tabular-nums;font-size:.93em;
+}
+
+/* ledger */
+.ledger{border-top:2px solid var(--anchor);border-bottom:2px solid var(--anchor)}
+.lhead{
+  display:flex;justify-content:space-between;gap:12px;
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);
+  padding:9px 0 8px;border-bottom:1px solid var(--mist);
+}
+.lrow{
+  display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline;
+  padding:10px 0;border-bottom:1px solid var(--mist);
+}
+.lrow:last-child{border-bottom:0}
+.lrow .k{font-size:15px}
+.lrow .k .sub{display:block;font-size:12.5px;color:var(--slate);margin-top:1px}
+.lrow .v{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-variant-numeric:tabular-nums;font-size:15px;font-weight:700;
+  text-align:right;white-space:nowrap;
+}
+.v.gain{color:var(--spruce)}
+.v.cost{color:var(--brick)}
+.v.open{color:var(--slate);font-weight:400;font-style:italic}
+.lrow.seam{border-top:1px solid var(--anchor)}
+
+/* mitigation rows */
+.rows{border-top:2px solid var(--anchor);border-bottom:1px solid var(--anchor)}
+.jrow{
+  display:grid;grid-template-columns:24px 1fr;gap:0 16px;
+  padding:13px 0;border-bottom:1px solid var(--mist);
+}
+.jrow:last-child{border-bottom:0}
+.jrow .letter{
+  font-family:Baskerville,"Palatino Linotype",Palatino,Georgia,serif;
+  font-size:21px;font-weight:600;color:var(--spruce);line-height:1.2;
+}
+.jrow .jname{font-size:15.5px;font-weight:650}
+.jrow .jdesc{font-size:14px;color:var(--slate);margin-top:3px;line-height:1.55}
+
+/* table */
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{
+  text-align:left;padding:6px 12px 6px 0;border-bottom:2px solid var(--anchor);
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);
+  white-space:nowrap;
+}
+td{padding:7px 12px 7px 0;border-bottom:1px solid var(--mist);vertical-align:top}
+td:last-child,th:last-child{padding-right:0}
+.st{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:11.5px;white-space:nowrap;
+}
+.st.have{color:var(--spruce)}
+.st.part{color:var(--slate)}
+.st.miss{color:var(--brick);font-weight:700}
+.grp td{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--spruce);padding-top:16px;border-bottom:2px solid var(--anchor);
+}
+.grp.warn td{color:var(--brick)}
+
+/* figure */
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figcaption{font-size:12.5px;color:var(--slate);line-height:1.5}
+.simfig{overflow-x:auto}
+.simfig svg{min-width:560px;width:100%;height:auto;display:block}
+
+/* aside */
+.aside{
+  border:1px solid var(--mist);border-left:3px solid var(--spruce);
+  padding:14px 18px;display:flex;flex-direction:column;gap:6px;
+}
+.aside .ah{font-size:14px;font-weight:700}
+.aside p{font-size:14px;color:var(--slate)}
+
+/* retell strip */
+.retell{
+  border-left:3px solid var(--brick);
+  padding:4px 0 6px 18px;
+  display:flex;flex-direction:column;gap:8px;
+  margin-top:38px;
+}
+.retell .lab{
+  font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brick);
+}
+.retell p{font-size:14px;color:var(--slate)}
+
+/* footer */
+.foot{
+  margin-top:44px;padding-top:14px;border-top:1px solid var(--mist);
+  font-size:12.5px;line-height:1.65;color:var(--slate);
+  display:flex;flex-direction:column;gap:5px;
+}
+a{color:var(--spruce)}
+a:focus-visible{outline:2px solid var(--spruce);outline-offset:2px}
+
+@media (max-width:719px){
+  section{display:block}
+  .rail{flex-direction:row;align-items:baseline;gap:12px;margin-bottom:10px;padding-top:0}
+}
+
+/* print */
+@page{size:Letter;margin:0.65in}
+@media print{
+  :root{
+    --glacier:#ffffff;
+    --anchor:#1b232b;
+    --slate:#5b6672;
+    --mist:#d7dee0;
+    --spruce:#0e6b5e;
+    --brick:#a8432f;
+  }
+  body{
+    padding:0;background:#ffffff;font-size:10.5pt;
+    print-color-adjust:exact;-webkit-print-color-adjust:exact;
+  }
+  .wrap{max-width:none}
+  p{orphans:3;widows:3}
+  section{break-inside:auto;padding-top:18px;margin-top:18px}
+  .ledger,.tw,figure,.rows,.aside,.retell{break-inside:avoid}
+  h2{break-after:avoid}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Steadily &middot; Underwriting Automation &middot; Reference</div>
+  <h1 class="disp">What Must Be True</h1>
+  <p class="deck">Keeping any alert must be worth what it costs; dwelling age is the first alert priced both ways.</p>
+  <div class="byline">Suph Tweel &middot; August 18, 2026</div>
+</header>
+
+<section>
+  <div class="rail"><span class="n">1</span><span class="fig">63 of 100 die</span></div>
+  <div class="content">
+    <h2>What keeping the alert costs</h2>
+    <p>Homes over 100 years old cannot bind until an underwriter reviews them. It is our first and most common blocking alert. Per 100 quotes hitting it, <b class="num">63</b> die with nobody ever looking, about <b class="num">16</b> bind, and <b class="num">4.5%</b> of those cancel within 90 days. Keeping the gate costs about <b class="num">2,200</b> forced underwriter reviews per month. What that buys is the question.</p>
+  </div>
+</section>
+
+<section>
+  <div class="rail"><span class="n">2</span><span class="fig">+115 vs +25</span></div>
+  <div class="content">
+    <h2>The twin already ran the experiment</h2>
+    <p>We do not need to guess what removal does. Homes aged 91 to 100 bind today with no alert and no review: about 18 of 100 bind and 6.5% cancel within 90 days, against about 16 and 4.5% when reviewed. Reading the full 101-and-older book against that twin yields the monthly ledger.</p>
+    <div class="ledger">
+      <div class="lhead"><span>Per month, at full scale</span><span>Effect</span></div>
+      <div class="lrow"><div class="k">Bound policies<span class="sub">quotes that die at the wall today</span></div><div class="v gain">+115</div></div>
+      <div class="lrow"><div class="k">Forced underwriter reviews<span class="sub">work that stops existing</span></div><div class="v gain">&minus;2,200</div></div>
+      <div class="lrow"><div class="k">New NOCs<span class="sub">Notices of Cancellation: the letter that cancels a policy we already bound</span></div><div class="v cost">+25</div></div>
+      <div class="lrow"><div class="k">UW corrective endorsements<span class="sub">coverage fixed after the sale</span></div><div class="v cost">+30</div></div>
+      <div class="lrow"><div class="k">Premium from UW corrections<span class="sub">bound-only; their fixes raise price 3.4x more often than they lower it</span></div><div class="v cost">&minus;$26K</div></div>
+      <div class="lrow seam"><div class="k"><b>Effect on loss ratio</b><span class="sub">the line that decides it</span></div><div class="v open">unknown</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="rail"><span class="n">3</span><span class="fig">no shared unit</span></div>
+  <div class="content">
+    <h2>Why the decision stalls</h2>
+    <p>The ledger's two sides share no unit, and we do not hold the prices that would convert them: what one bind is worth over its life, or what one NOC costs all-in. Underwriting answers for every NOC, so zero new NOCs is the honest position from that seat. Growth answers for every bind, so taking all 115 is honest from its seat. Both are right from where they sit. The same collision ends every attempt to retire any alert, so nothing ever retires. The problem is not dwelling age. It is the missing instrument.</p>
+  </div>
+</section>
+
+<section>
+  <div class="rail"><span class="n">4</span><span class="fig">6 counts<br>6 tags</span></div>
+  <div class="content">
+    <h2>The weighing machine</h2>
+    <p>The recommendation is the weighing machine: one instrument, two halves. The first half forecasts the counts, how many binds, NOCs, and corrective endorsements removal adds or removes. That half mostly exists; it produced the ledger above.</p>
+    <p>The second half is the one we do not have: the weights themselves. What is a bind worth, once retention and the GWP growth it compounds are counted? What does a NOC cost, when the worst case is not the lost policy but the lost agent? What does a corrective endorsement weigh? What are 2,200 freed reviews worth in underwriter time? None of these is a number we hold today, and until every count carries a weight, the beam reads nothing.</p>
+
+    <figure>
+      <div class="simfig">
+      <svg viewBox="0 0 680 334" role="img" aria-label="A balance scale. The gain pan holds counts: 115 binds a month and 2,200 reviews freed. The cost pan holds counts: 25 NOCs, 30 endorsements, 26 thousand dollars of premium, and a dashed loss-ratio weight that has not landed. Under both pans, the price per unit is marked unpriced. The fulcrum is the weighing machine: counts times price tags.">
+        <defs>
+          <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0 0L8 4L0 8z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="currentColor" font-size="12">
+          <text x="340" y="44" text-anchor="middle" font-size="11.5" font-style="italic">which way does it tip? unpriced today</text>
+
+          <!-- beam and hangers -->
+          <line x1="140" y1="70" x2="540" y2="70" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="140" y1="70" x2="140" y2="106" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="540" y1="70" x2="540" y2="106" stroke="currentColor" stroke-width="1.5"/>
+
+          <!-- fulcrum -->
+          <path d="M340 71 L316 122 L364 122 Z" fill="none" stroke="var(--spruce)" stroke-width="2"/>
+          <text x="340" y="145" text-anchor="middle" fill="var(--spruce)" font-family="ui-monospace,'SF Mono',Menlo,monospace" font-size="11.5" letter-spacing="1.5">THE WEIGHING MACHINE</text>
+          <text x="340" y="163" text-anchor="middle" font-size="10.5">counts &#215; price tags</text>
+
+          <!-- gain pan -->
+          <rect x="60" y="106" width="160" height="180" rx="3" fill="none" stroke="currentColor"/>
+          <text x="140" y="124" text-anchor="middle" font-family="ui-monospace,'SF Mono',Menlo,monospace" font-size="9.5" letter-spacing="1" opacity="0.7">WHAT WE GAIN</text>
+          <rect x="72" y="136" width="136" height="30" fill="none" stroke="currentColor"/>
+          <text x="140" y="155" text-anchor="middle" font-weight="600">+115 binds / mo</text>
+          <rect x="72" y="172" width="136" height="30" fill="none" stroke="currentColor"/>
+          <text x="140" y="191" text-anchor="middle" font-weight="600">2,200 reviews freed</text>
+
+          <!-- cost pan -->
+          <rect x="460" y="106" width="160" height="180" rx="3" fill="none" stroke="currentColor"/>
+          <text x="540" y="124" text-anchor="middle" font-family="ui-monospace,'SF Mono',Menlo,monospace" font-size="9.5" letter-spacing="1" opacity="0.7">WHAT IT COSTS</text>
+          <rect x="472" y="136" width="136" height="30" fill="none" stroke="currentColor"/>
+          <text x="540" y="155" text-anchor="middle" font-weight="600">+25 NOCs / mo</text>
+          <rect x="472" y="172" width="136" height="30" fill="none" stroke="currentColor"/>
+          <text x="540" y="191" text-anchor="middle" font-weight="600">+30 endorsements</text>
+          <rect x="472" y="208" width="136" height="30" fill="none" stroke="currentColor"/>
+          <text x="540" y="227" text-anchor="middle" font-weight="600">&minus;$26K premium</text>
+          <rect x="472" y="244" width="136" height="30" fill="none" stroke="var(--brick)" stroke-dasharray="5 3"/>
+          <text x="540" y="263" text-anchor="middle" font-weight="600" fill="var(--brick)">&#916; loss ratio</text>
+          <text x="140" y="304" text-anchor="middle" font-size="9.5" fill="var(--brick)">&#215; value of a bind: unpriced</text>
+          <text x="140" y="318" text-anchor="middle" font-size="9.5" fill="var(--brick)">&#215; a freed review: unpriced</text>
+          <text x="540" y="304" text-anchor="middle" font-size="9.5" fill="var(--brick)">&#215; a NOC: half priced</text>
+          <text x="540" y="318" text-anchor="middle" font-size="9.5" fill="var(--brick)">loss ratio lands about a year later</text>
+        </g>
+      </svg>
+      </div>
+      <figcaption>Today both pans hold counts, and counts in different units balance nothing. Every weight needs a price: a bind, a NOC, an endorsement, a freed review. Once the tags exist, disagreement becomes a number, and when an input changes the alert is re-weighed, not re-argued.</figcaption>
+    </figure>
+    <p>And the machine is not a dwelling age tool. It prices any alert, in both directions: an existing alert proposed for retirement, and every future alert before it is allowed to ship.</p>
+
+    <h3>Everything the machine needs to eat</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Input</th><th>What it feeds</th><th>Dwelling age today</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="3">The counts &middot; forecast what removal changes</td></tr>
+          <tr><td><b>Alert funnel volumes</b></td><td>quotes per month hitting the alert, share submitted, share that dies unlooked</td><td><span class="st have">measured</span></td></tr>
+          <tr><td><b>A no-alert twin</b></td><td>a comparable population without the alert, for bind rate and cancel rate</td><td><span class="st have">measured (91 to 100)</span></td></tr>
+          <tr><td><b>The risk gradient</b></td><td>how outcomes climb past the twin, so the projection stays honest (NOCs ramp 22.8% per decade)</td><td><span class="st have">measured</span></td></tr>
+          <tr><td><b>Post-bind outcomes</b></td><td>NOCs and UW corrective endorsements per 100 bound, within 90 days</td><td><span class="st have">measured</span></td></tr>
+          <tr><td><b>The UW action log</b></td><td>what reviewers actually change on approvals, and how often</td><td><span class="st have">measured</span></td></tr>
+          <tr><td><b>Automation coverage</b></td><td>which review jobs already have a system, so "after the fixes" can be weighed, not just "alert off"</td><td><span class="st part">roof only</span></td></tr>
+          <tr class="grp warn"><td colspan="3">The price tags &middot; convert each count to dollars</td></tr>
+          <tr><td><b>Weight of a bind</b></td><td>year-one premium, retention, the segment's loss cost, and the GWP growth a kept customer compounds: dollars over a lifetime, not a count</td><td><span class="st part">year one only</span></td></tr>
+          <tr><td><b>Weight of a NOC</b></td><td>the agent side is now priced (Darren's curves, Aug 18): 74% of NOCs cure, and a cured one costs roughly 0 to 2% of that agent's next-year binds; an uncured cancellation costs about 20%, front-loaded on the first one, hardest on small books, with no spill to agency colleagues. Still unpriced: the customer side (refunded premium, sunk acquisition)</td><td><span class="st part">agent side priced</span></td></tr>
+          <tr><td><b>Weight of a corrective endorsement</b></td><td>premium side measured (roughly $0 relief to the customer); the removed-coverage side is not</td><td><span class="st part">half priced</span></td></tr>
+          <tr><td><b>Weight of a freed review</b></td><td>what 2,200 forced reviews per month cost in underwriter time, and what that capacity is worth pointed elsewhere</td><td><span class="st miss">unpriced</span></td></tr>
+          <tr><td><b>Premium from UW corrections</b></td><td>bound-only premium their fixes add or remove</td><td><span class="st have">measured ($26K/mo)</span></td></tr>
+          <tr><td><b>The loss join</b></td><td>actual losses tied back to the alert's population: the deepest price tag</td><td><span class="st miss">missing</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aside">
+      <div class="ah">How real is this?</div>
+      <p>This is not a platform pitch. The counting half has already run once, by hand: dwelling age is its output, and the ledger above is what it produces. And one pricing module already runs as code: Darren's agent-production calculator takes any proposal as a change in alert, NOC, and cure rates and returns a signed production number, with honest brackets where a price is uncertain. What remains unpriced is narrower than it was a week ago: lifetime bind value, the freed-review hour, the customer side of a NOC, and the loss join. Pricing those is the ask, and it is a finance and actuarial partnership, not a data pull.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="rail"><span class="n">5</span><span class="fig">~1 yr lag</span></div>
+  <div class="content">
+    <h2>What a live test cannot prove</h2>
+    <p>A live test cannot make this decision. It reads the fast numbers inside 90 days: bind lift, NOCs, corrective endorsements. Realized loss ratio takes about a year, and no method today ties an alert to actual losses. The answer sits in data we already own: the twin has bound unreviewed for years, and its losses are on the books. Backtesting those losses against the reviewed 101-and-older book, with actuarial owning the method, prices the loss side without the wait. The test keeps exactly one job: validating the fast numbers behind a reversible flag, 7 states, random 50% holdout, 30 to 60 days, inside kill bounds underwriting sets.</p>
+  </div>
+</section>
+
+<section>
+  <div class="rail"><span class="n">6</span><span class="fig">3 moves<br>+ 1 ask</span></div>
+  <div class="content">
+    <h2>Shrinking the cost pan</h2>
+    <p>The review's work decomposes. About half of approvals change nothing; real judgment is about 11%. The rest is three nameable jobs, each with a move that shifts weight off the cost pan; the scale re-weighs the trade after every move.</p>
+    <div class="rows">
+      <div class="jrow">
+        <div class="letter disp">A</div>
+        <div>
+          <div class="jname">Widen the roof rule</div>
+          <div class="jdesc">One in four approvals ends in a hand-applied roof surfacing exclusion, 85% with no roof fact changed. Live automation fires on roughly the worst 4%; underwriters hand-apply on 21.3%. Widening costs about two extra exclusions per catch at roughly $0 premium relief; underwriting picks the threshold.</div>
+        </div>
+      </div>
+      <div class="jrow">
+        <div class="letter disp">B</div>
+        <div>
+          <div class="jname">Buy better pre-fill data</div>
+          <div class="jdesc">Six property fields carry 90% of data corrections, and 65 to 79% of underwriter field fixes repair vendor pre-fill the agent never touched. Better upstream data shrinks both the fixes and the premium at risk.</div>
+        </div>
+      </div>
+      <div class="jrow">
+        <div class="letter disp">C</div>
+        <div>
+          <div class="jname">Consume the Pluribus checks</div>
+          <div class="jdesc">Commercial use, historic districts, and unit-count issues are 82% of rejections. Pluribus ships automatic checks for exactly these around October; consuming them moves most rejection work off the review desk.</div>
+        </div>
+      </div>
+    </div>
+    <p>A fourth lever cuts across the last two: ask the agent in the flow. A direct question (historic district, commercial use, unit count) ships as a form field months before detection lands, and an answered question puts the risk on the record even when the answer is wrong. It is not free, and the machine weighs it like everything else: every added question is a small alert paid in conversion on every quote, and where agents type over our pre-fill today, underwriters end up correcting those values 2 to 6 times more often than the untouched feed. Ask where the representation itself matters; detect where data can.</p>
+    <p class="small">Darren's curves add a fifth lever: raise the cure rate. It is the one dial in his calculator that wins under every price assumption, and it lightens the cost pan without touching the alert.</p>
+    <p class="small">The roughly 11% needing real judgment and the roughly 2% genuinely about age (pre-1940 wiring, visible decay), kept as a narrow rule or priced risk, never automate.</p>
+  </div>
+</section>
+
+<section>
+  <div class="rail"><span class="n">7</span><span class="fig">Thu Aug 20</span></div>
+  <div class="content">
+    <h2>The North Star</h2>
+    <p>Dwelling age is test case one, not the destination. The point is running the machine on every alert we have and every alert anyone proposes, until no alert survives that a system could have handled and none ships unweighed. Thursday's ask is help pricing both pans, not permission. Underwriting sets the kill bounds, actuarial owns the loss backtest, and Darren and Christine make the call, as a sized trade.</p>
+  </div>
+</section>
+
+<div class="retell">
+  <div class="lab">Before you retell it &middot; three numbers to say right</div>
+  <p><b>Bare removal is not free upside.</b> The 25 added NOCs per month is a floor: NOC rates climb 22.8% per decade of dwelling age, the 101-and-older book averages 117 years, and an unreviewed book projects 7 to 11 NOCs per 100 binds, above the twin's 6.5.</p>
+  <p><b>Two NOC rates are now in circulation; name the slice.</b> The 6.5 per 100 on this page is inspection-driven NOCs on the twin cohort. Darren's 11.7% is every UW NOC, book-wide, within 90 days. Both are right; quoting one against the other is how a room gets lost.</p>
+  <p><b>Premium at risk is about $26K per month, deliberately bound-only.</b> Underwriter fixes raise price 3.4 times more often than they lower it, so unreviewed binds under-collect on policies we keep. A larger all-approved figure exists, but it misleads: that premium mostly never binds.</p>
+</div>
+
+<div class="foot">
+  <div>This page is the reference. The deep dives are its companions: <i>The Dwelling Age Plan</i> (what the review actually does), <i>Two Houses</i> (the twin-cohort evidence), <i>Why Old Roofs Slip Through</i> (the roof automation and its dial), <i>The Pre-fill Bake-off</i> (the data vendor test), and Darren's <i>Underwriting friction and agent production</i> curves (scratch-darren, Aug 18).</div>
+  <div>Working reference, not circulated. August 18, 2026.</div>
+</div>
+
+</div>
