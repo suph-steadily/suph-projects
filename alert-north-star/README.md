@@ -23,12 +23,16 @@
 - Alignment is not the blocker. Nobody has named a **price**. There is no agreed bind-to-NOC ratio, and LaNae has never been asked what NOC increase she would accept. That number is the gate for everything else.
 - Per David: **the bind lift is already proven.** The entire open question is the cost side (NOCs, NOEs, lost premium, agent attrition). So the weighing machine is really a cost-pricing machine.
 - **The thesis, stated properly:** automate the four jobs the underwriter does on this alert (approve, roof exclusion, data corrections, eligibility soft-checks) so the system duplicates the UW exactly. THEN turn off the alert. Expected result: **no increase in NOCs or NOEs**, because the same interventions still happen, just pre-bind and automated. If that holds, the alert can go.
-- The data supports "near zero," not "exactly zero": of the +1.94 NOC/100 gap between the reviewed book and its unreviewed twin, ~3/4 (1.48) sits in lever-addressable categories (§6b); the remaining ~0.4/100 sits in inspection-found categories the review doesn't move anyway.
+- How close to zero? Today the unreviewed twin gets about **2 extra NOCs per 100 policies** vs the reviewed book (6.5 vs 4.5). Of those 2: about **1.5 come from things our levers automate** (roof, eligibility, data). The last ~0.5 comes from things the on-site inspection finds, which the UW review doesn't prevent today either. So with working levers, removal adds close to zero — not exactly zero. (Full reason-by-reason breakdown in §6b.)
+- **Automation alone buys zero growth — it only defends the NOC rate.** The 63 of 100 who die at the roadblock never even submit; automating what happens behind the alert recovers none of them. They come back only when the alert itself disappears. So: automation is the hedge, removal is the unlock. Both, in that order.
+- **And the carry-over has to be proven, not assumed.** Once the levers exist, remove the alert for a small slice (say 10%) and watch whether the systems truly duplicate the UW: NOC and fix rates on the un-gated slice should hold at reviewed-book levels. That is the test that makes sense — a canary AFTER the levers are built, not a 7-state discovery test before them.
 - **The residual carries over, and it's the next frontier.** Even with a UW reviewing every 101+ bind, the reviewed book still runs ~4.5 NOCs and ~3.9 NOEs per 100 (90d). Duplicating the UW keeps that rate — it doesn't fix it. Not great. §6b says what it's made of (mostly Condition-General and Liability findings from the post-bind inspection), so improving it is a different problem than the alert: pre-bind condition signal (imagery/inspection), not data review. That optimization is worth doing whether or not the alert lives.
 - The rubber-stamp rate (~45% today, ~80% if the levers land) is a **gauge** of residual UW value, not the finish line. At 80%, the machine's question becomes: does the remaining 20% of interventions beat the friction cost imposed on 100% of quotes?
 - The machine works both directions: alerts to **remove** and proposed alerts to **add**.
 
 ## 3. The Weighing Machine
+
+**Sub-project: [weighing-machine/](weighing-machine/REQUIREMENTS.md)** — requirements, inputs, validation plan, and the first-pass Python model live there.
 
 What it must output for any alert:
 
@@ -131,7 +135,8 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 
 - **The 7-state 50/50 test is likely off.** "Pick seven states and eat the NOCs" has no team appetite — a live test means real agents get real NOCs before we can size the risk.
 - **What survives from Julie's advice is the framing, and it points at the machine:** don't ask underwriting yes/no. Help them **size the risk** — upside, bounded downside — and route the business decision to Darren or Christine. Sizing the risk IS the weighing machine.
-- **So the sequence inverts:** the weighing machine comes FIRST. Weigh → present the sized risk → decision-makers pick a tolerance → automate the levers that beat it → remove. A live test becomes optional confirmation at the end, not the discovery step.
+- **So the sequence inverts:** the weighing machine comes FIRST. Weigh → present the sized risk → decision-makers pick a tolerance → automate the levers that beat it → remove. A live test becomes confirmation at the end, not the discovery step.
+- **The test that does make sense: a 10% canary after the levers exist.** Remove the alert on a small slice of traffic and verify the automated systems carry over (NOC / fix rates hold at reviewed-book levels). Small blast radius, and it measures the only thing left to prove.
 - Reference, if a test ever revives: 50/50 in the top 7 states (bind-to-NOC above 8.8:1 for 90-100yr homes; Illinois 21% bind), ~30-60 days for significance.
 
 ## 9. Open questions
