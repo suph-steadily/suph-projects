@@ -79,6 +79,32 @@ What removal costs and gains (91-100 cohort layered onto 101+):
 - We know the three-strike rule of thumb but not the full underlying mechanism. The scratch-darren curves (74% of NOCs cure; cured knocks cost ~0 to -2% per event vs. cancellations at -20% front-loaded) are the start of the evidence.
 - The optimistic logic: if we do the UW's jobs really well, **the knock rate should not change** relative to today. The same interventions happen, just automated pre-bind. Residual knocks exist today with a UW in every single 101+ journey, so they are a standing optimization target **whether or not the alert lives.**
 
+## 6b. What dwelling-age knocks and NOEs are actually FOR (answered 8/19)
+
+Pulled from the 8/16 snapshot tables (bound cohorts, 90-day window; NOC sub-reasons from the Salesforce UW cancellation picklist; totals reconcile exactly with the published 4.52 vs 6.46 NOC/100 pair).
+
+**Knock (NOC) reasons, reviewed 101+ (DAMR) vs its un-reviewed just-under twin (JU = what removal looks like), per 100 bound:**
+
+| Reason | DAMR 101+ | JU 91-100 | Gap (removal cost) |
+|---|---|---|---|
+| Condition - General | 2.71 (60% of knocks) | 2.86 (44%) | +0.15 |
+| Liability Hazard | 0.90 | 1.14 | +0.24 |
+| Condition - Roof | 0.28 | 0.98 | **+0.70** |
+| Ineligible Risk | 0.49 | 0.90 | **+0.41** |
+| Misrepresentation / Pricing | 0.05 | 0.25 | +0.20 |
+| Other (named insured, business on premises, unable to inspect) | 0.09 | 0.33 | +0.24 |
+| **Total** | **4.52** | **6.46** | **+1.94** |
+
+What this says:
+
+- **The biggest knock bucket (~60% on reviewed) is Condition - General**: physical-condition findings from the post-bind inspection (deterioration, debris, etc.). The UW review barely moves it (2.71 vs 2.86). No amount of pre-bind data automation prevents these; that is the irreducible knock floor, and the review was never protecting against it.
+- **~3/4 of the incremental knocks from removal (1.48 of the 1.94/100 gap) sit in categories the three levers directly address**: Condition-Roof (+0.70 → the roof-exclusion aperture), Ineligible Risk + business-on-premises + named-insured (+0.58 → the soft checks / attestations), Misrepresentation (+0.20 → data accuracy). The review's actual protective value is concentrated exactly where the automation plan already points.
+- Liability Hazard (~20% of knocks) is mostly inspection-found and not review-preventable either (0.90 vs 1.14).
+
+**NOE composition (UW-corrective endorsements, 90d):** ~90% are exclusion changes, and **the roof-surfacing exclusion alone is 53% (DAMR) / 59% (JU) of all UW NOEs**. Attribute corrections are only ~10% (mostly property_type). So the #1 NOE cause post-bind IS the roof-exclusion job: the aperture expansion attacks the dominant NOE lane directly.
+
+Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the selection-effect floor from §7 still applies.
+
 ## 7. Missing dots and risks (the honest list)
 
 - **Selection effect.** Cohort layering assumes the same population applies after removal. Alerts also deter bad risks from submitting. The knock projection is a **floor**, not an estimate.
@@ -98,7 +124,7 @@ What removal costs and gains (91-100 cohort layered onto 101+):
 
 - **The gate:** what knock increase will LaNae accept? Never asked directly.
 - What is one bind worth vs. one knock, in dollars? (Bind LTV, knock cost, agent attrition = the Curry model inputs.)
-- **Unexplored thread: what are 101+ policies actually getting knocked FOR today?** We have rates but never pulled reasons. If residual knock reasons overlap the three levers, automation shrinks them too. If not, that is new information about what the alert does and doesn't protect against.
+- ~~What are 101+ policies actually getting knocked FOR?~~ **Answered 8/19, see §6b.** Headline: ~3/4 of the removal-induced knock increase sits in lever-addressable categories; the dominant knock bucket (Condition - General) was never review-preventable.
 - What share of NOEs for 90-100yr homes are roof exclusions? If ~50%+, strong case to retarget the model for this cohort now.
 - Does Texas (longest roof-model bake) already show the manual 15% roof-exclusion rate dropping?
 - Once the levers land and rubber-stamp hits ~80%, does the machine say kill? Run it, don't assume.
@@ -112,7 +138,7 @@ What removal costs and gains (91-100 cohort layered onto 101+):
 - [ ] Meet David Curry: scope the bind/knock model (bind LTV, knock cost, UW premium per alert).
 - [ ] With Curry: expand roof-exclusion threshold to bottom 20% for older dwellings.
 - [ ] Check Texas knock/NOE data for roof-model impact.
-- [ ] Pull knock reason codes for the 101+ cohort.
+- [x] ~~Pull knock reason codes for the 101+ cohort.~~ Done 8/19 (§6b).
 - [ ] Build the LandGlide (or equivalent) pre-fill sourcing case, starting with 101+ homes; get SmartSource pricing.
 - [ ] Explore the premium age modifier with actuarial.
 - [ ] Review the conditional liability exclusion form (eng + comms lift).
