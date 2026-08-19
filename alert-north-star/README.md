@@ -9,7 +9,7 @@
 ## 1. The North Star
 
 - The North Star is not "zero alerts" for its own sake. It is **growth without agent friction**: grow the business safely, with no underwriting roadblocks in the agent's path.
-- Zero underwriting alerts is the measurable expression of that. Alerts protect the book, but they lose binds: on age-alert-only quotes, **55% are never referred at all** (the roadblock kills them before any human looks). Of 100 such quotes, ~63 die with nobody ever looking and only ~16 bind. Referrals that do get approved issue at ~46-51%, so the loss is upstream of the underwriter, not in the decision. *(Validated 8/19 against the Pre-Bind Review Findings and Two Houses artifacts; the earlier "70-77% drop off / 15% of referred bind" was a mis-dictation.)*
+- Zero underwriting alerts is the measurable expression of that. Alerts protect the book, but they lose binds. **Out of 100 quotes whose only obstacle is the dwelling age alert: 63 never get referred (the roadblock scares the agent off before any human looks), 21 get referred but never bind, and 16 become policies.** The loss is upstream of the underwriter, not in the decision: referrals that do get approved go on to issue at 46-51%. *(Two Houses funnel, validated 8/19. The Findings artifact's wider cohort cut puts never-referred at 55% instead of 63; same story, different cut.)*
 - Leadership already agrees on direction, in slightly different words:
   - **Christine:** zero underwriting alerts; the real fix may be better upstream pre-fill data, not per-alert patches.
   - **LaNae:** zero underwriting alerts for older dwellings. Strong preference to say no or add friction upfront rather than cancel post-bind.
