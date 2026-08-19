@@ -186,6 +186,25 @@
   }
   .job h3 { margin: 0.4rem 0 0.35rem; }
   .job p { color: var(--secondary); font-size: 0.95rem; }
+  .fix-head {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+  }
+  .punch {
+    margin-top: 1.1rem;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    font-size: 1.06rem;
+    line-height: 1.55;
+  }
+  .punch .move { color: var(--accent); font-weight: 700; }
 
   /* ---------- Slide 5: ledger ---------- */
   .ledger { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
@@ -337,17 +356,6 @@
   .ask .sub { color: var(--secondary); font-size: 0.93rem; margin-top: 0.25rem; }
 
   /* ---------- Chrome ---------- */
-  .zone {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-  }
-  .zone.prev { left: 0; width: 15%; }
-  .zone.next { left: 15%; right: 0; }
   .counter {
     position: fixed;
     right: 1.3rem;
@@ -394,7 +402,8 @@
     }
     .slide:last-of-type { break-after: auto; }
     .wrap { margin: 0 auto; }
-    .zone, .counter, .hint { display: none; }
+    .counter, .hint { display: none; }
+    .slide { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
 
@@ -480,8 +489,112 @@
     </div>
   </section>
 
-  <!-- 4 · The idea -->
-  <section class="slide" aria-label="Slide 4: the idea">
+  <!-- 4 · How we do each job ourselves -->
+  <section class="slide" aria-label="Slide 4: how we do each job ourselves">
+    <div class="wrap">
+      <h2>How we do each job ourselves</h2>
+      <div class="jobs">
+        <div class="job">
+          <div class="fix-head">Approve touching nothing</div>
+          <h3>Auto-approve</h3>
+          <p>Once the other three jobs run, the system approves these itself. This one is free at the end.</p>
+        </div>
+        <div class="job">
+          <div class="fix-head">Add the roof exclusion &middot; 25.3%</div>
+          <h3>The dial</h3>
+          <p>The photo model already applies the exclusion, just too narrowly: 3.5 per 100 vs the underwriters' 21.3. Lower the score bar for old homes and let underwriting pick the setting: score 90+ catches 33% of their hand-applied exclusions (1.3 extra per catch), 60+ catches 84% (2.4 extra per catch). Already live nationwide; Texas has the longest track record.</p>
+        </div>
+        <div class="job">
+          <div class="fix-head">Fix our own data &middot; 28.2%</div>
+          <h3>Buy the data</h3>
+          <p>Buy the data underwriters look up by hand (LandGlide, county records). A data source trial is running now. Most fixes land on pre-fill the agent never touched, so a better feed means fewer fixes needed at all, and the $310K per year of corrections happens before bind instead of in review.</p>
+        </div>
+        <div class="job">
+          <div class="fix-head">Run the soft checks &middot; 8.4% rejected</div>
+          <h3>Two paths</h3>
+          <p>Pick one now and swap later. Path A, available today: ask the agent directly in the quote flow. Is it a historic district? Commercial? Sober living? Agents prefer answering questions over getting a referral. Path B, around October: the Pluribus team's automated signals detect these without asking. Start with A, swap in B when it lands.</p>
+        </div>
+      </div>
+      <div class="punch">
+        <p><strong>The goal:</strong> &lsquo;approve, touching nothing&rsquo; goes <span class="move">from <span class="mono">46.5%</span> to <span class="mono">100%</span></span>. The underwriter opens the referral and finds nothing left to do, because the system already did it. That is how we know the fixes work, while the alert is still on and nothing can go wrong.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · The underwriter has been protecting the book -->
+  <section class="slide" aria-label="Slide 5: the underwriter has been protecting the book">
+    <div class="wrap">
+      <h2>The underwriter has been protecting the book</h2>
+      <figure>
+        <p class="lede" style="margin-bottom: 0.9rem;">NOCs per 100 bound policies within 90 days: homes without the review (the sister cohort) vs homes with it (the reviewed book).</p>
+        <svg viewBox="0 0 1000 398" role="img" aria-label="Paired bars compare cancellation letters per hundred bound policies, by reason, for homes without the review and homes with it. Every row improves with the review, the first three rows improve the most, and the general condition row barely moves.">
+          <rect x="270" y="8" width="14" height="14" rx="3" class="f-cost"></rect>
+          <text x="292" y="20" class="svg-body f-sec" font-size="13">without the review</text>
+          <rect x="470" y="8" width="14" height="14" rx="3" class="f-accent"></rect>
+          <text x="492" y="20" class="svg-body f-sec" font-size="13">with the review</text>
+
+          <line x1="470" y1="38" x2="470" y2="390" class="s-line" stroke-width="1"></line>
+          <line x1="670" y1="38" x2="670" y2="390" class="s-line" stroke-width="1"></line>
+          <line x1="870" y1="38" x2="870" y2="390" class="s-line" stroke-width="1"></line>
+          <line x1="270" y1="38" x2="270" y2="390" class="s-line" stroke-width="2"></line>
+
+          <text x="255" y="64" text-anchor="end" class="svg-body f-ink" font-size="15" font-weight="600">Roof problems</text>
+          <rect x="270" y="44" width="98" height="15" rx="2" class="f-cost"></rect>
+          <text x="376" y="56" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.98</text>
+          <rect x="270" y="61" width="28" height="15" rx="2" class="f-accent"></rect>
+          <text x="306" y="73" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.28</text>
+
+          <text x="255" y="114" text-anchor="end" class="svg-body f-ink" font-size="15" font-weight="600">Not an eligible risk</text>
+          <rect x="270" y="94" width="90" height="15" rx="2" class="f-cost"></rect>
+          <text x="368" y="106" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.90</text>
+          <rect x="270" y="111" width="49" height="15" rx="2" class="f-accent"></rect>
+          <text x="327" y="123" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.49</text>
+
+          <text x="255" y="157" text-anchor="end" class="svg-body f-ink" font-size="15" font-weight="600">Wrong information</text>
+          <text x="255" y="175" text-anchor="end" class="svg-body f-sec" font-size="12.5">on the application</text>
+          <rect x="270" y="144" width="25" height="15" rx="2" class="f-cost"></rect>
+          <text x="303" y="156" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.25</text>
+          <rect x="270" y="161" width="5" height="15" class="f-accent"></rect>
+          <text x="283" y="173" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.05</text>
+
+          <text x="255" y="207" text-anchor="end" class="svg-body f-ink" font-size="15" font-weight="600">Liability hazards</text>
+          <text x="255" y="225" text-anchor="end" class="svg-body f-sec" font-size="12.5">(trampolines, animals)</text>
+          <rect x="270" y="194" width="114" height="15" rx="2" class="f-cost"></rect>
+          <text x="392" y="206" class="svg-mono f-ink" font-size="12.5" font-weight="600">1.14</text>
+          <rect x="270" y="211" width="90" height="15" rx="2" class="f-accent"></rect>
+          <text x="368" y="223" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.90</text>
+
+          <text x="255" y="264" text-anchor="end" class="svg-body f-ink" font-size="15" font-weight="600">Other</text>
+          <rect x="270" y="244" width="33" height="15" rx="2" class="f-cost"></rect>
+          <text x="311" y="256" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.33</text>
+          <rect x="270" y="261" width="9" height="15" class="f-accent"></rect>
+          <text x="287" y="273" class="svg-mono f-ink" font-size="12.5" font-weight="600">0.09</text>
+
+          <text x="255" y="307" text-anchor="end" class="svg-body f-ink" font-size="15" font-weight="600">General condition</text>
+          <text x="255" y="325" text-anchor="end" class="svg-body f-sec" font-size="12.5">(what the inspection finds)</text>
+          <rect x="270" y="294" width="286" height="15" rx="2" class="f-cost"></rect>
+          <text x="564" y="306" class="svg-mono f-ink" font-size="12.5" font-weight="600">2.86</text>
+          <rect x="270" y="311" width="271" height="15" rx="2" class="f-accent"></rect>
+          <text x="549" y="323" class="svg-mono f-ink" font-size="12.5" font-weight="600">2.71</text>
+
+          <line x1="20" y1="344" x2="980" y2="344" class="s-line" stroke-width="1.5"></line>
+
+          <text x="255" y="376" text-anchor="end" class="svg-body f-ink" font-size="15" font-weight="700">Total</text>
+          <rect x="270" y="356" width="646" height="15" rx="2" class="f-cost"></rect>
+          <text x="924" y="368" class="svg-mono f-ink" font-size="12.5" font-weight="600">6.46</text>
+          <rect x="270" y="373" width="452" height="15" rx="2" class="f-accent"></rect>
+          <text x="730" y="385" class="svg-mono f-ink" font-size="12.5" font-weight="600">4.52</text>
+        </svg>
+      </figure>
+      <div class="callout">
+        <p class="lede">The protection is real: about 2 fewer NOCs per 100. And it sits almost entirely in the first three rows, which are exactly the jobs we are automating. The last row barely moves: the inspection finds those, and no review can.</p>
+        <p class="big">So the bar for our systems is simple. Do the same things the underwriter has been doing, and prove it before the alert comes off.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · The idea -->
+  <section class="slide" aria-label="Slide 6: the idea">
     <div class="wrap">
       <p class="eyebrow">The idea</p>
       <p class="statement">Automate those four jobs so the system does exactly what the underwriter does. Then turn the alert off.</p>
@@ -490,8 +603,8 @@
     </div>
   </section>
 
-  <!-- 5 · What we expect when it goes dark -->
-  <section class="slide" aria-label="Slide 5: what we expect when it goes dark">
+  <!-- 7 · What we expect when it goes dark -->
+  <section class="slide" aria-label="Slide 7: what we expect when it goes dark">
     <div class="wrap">
       <h2>What we expect when it goes dark</h2>
       <div class="ledger">
@@ -536,8 +649,8 @@
     </div>
   </section>
 
-  <!-- 6 · Automation defends. Removal unlocks. -->
-  <section class="slide" aria-label="Slide 6: automation defends, removal unlocks">
+  <!-- 8 · Automation defends. Removal unlocks. -->
+  <section class="slide" aria-label="Slide 8: automation defends, removal unlocks">
     <div class="wrap">
       <p class="eyebrow">The distinction</p>
       <p class="statement">Automation defends. Removal unlocks.</p>
@@ -546,8 +659,8 @@
     </div>
   </section>
 
-  <!-- 7 · The scale today -->
-  <section class="slide" aria-label="Slide 7: the scale today">
+  <!-- 9 · The scale today -->
+  <section class="slide" aria-label="Slide 9: the scale today">
     <div class="wrap">
       <h2>The scale today</h2>
       <figure>
@@ -580,8 +693,8 @@
     </div>
   </section>
 
-  <!-- 8 · The playbook -->
-  <section class="slide" aria-label="Slide 8: the playbook">
+  <!-- 10 · The playbook -->
+  <section class="slide" aria-label="Slide 10: the playbook">
     <div class="wrap">
       <h2>The playbook: how any alert gets retired</h2>
       <p class="lede" style="margin-bottom: 1.4rem;">A repeatable loop. Dwelling age is the first alert through it; every later one is cheaper.</p>
@@ -599,8 +712,8 @@
     </div>
   </section>
 
-  <!-- 9 · Where dwelling age sits -->
-  <section class="slide" aria-label="Slide 9: where dwelling age sits">
+  <!-- 11 · Where dwelling age sits -->
+  <section class="slide" aria-label="Slide 11: where dwelling age sits">
     <div class="wrap">
       <h2>Where dwelling age sits</h2>
       <div class="status-grid">
@@ -655,8 +768,8 @@
     </div>
   </section>
 
-  <!-- 10 · The NOCs that stay -->
-  <section class="slide" aria-label="Slide 10: the NOCs that stay">
+  <!-- 12 · The NOCs that stay -->
+  <section class="slide" aria-label="Slide 12: the NOCs that stay">
     <div class="wrap">
       <h2>The NOCs that stay</h2>
       <figure>
@@ -702,8 +815,8 @@
     </div>
   </section>
 
-  <!-- 11 · The asks -->
-  <section class="slide" aria-label="Slide 11: the asks">
+  <!-- 13 · The asks -->
+  <section class="slide" aria-label="Slide 13: the asks">
     <div class="wrap">
       <h2>The asks</h2>
       <div class="asks">
@@ -734,10 +847,8 @@
 
 </main>
 
-<div class="zone prev" id="zonePrev" aria-hidden="true"></div>
-<div class="zone next" id="zoneNext" aria-hidden="true"></div>
 <div class="hint" id="hint">arrows or click to advance</div>
-<div class="counter" id="counter" aria-live="polite">1 / 11</div>
+<div class="counter" id="counter" aria-live="polite">1 / 13</div>
 
 <script>
   (function () {
@@ -787,8 +898,14 @@
       }
     });
 
-    document.getElementById('zoneNext').addEventListener('click', function () { go(current + 1); });
-    document.getElementById('zonePrev').addEventListener('click', function () { go(current - 1); });
+    document.addEventListener('click', function (e) {
+      if (window.getSelection && String(window.getSelection())) { return; }
+      if (e.clientX < window.innerWidth * 0.15) {
+        go(current - 1);
+      } else {
+        go(current + 1);
+      }
+    });
 
     go(0);
   })();
