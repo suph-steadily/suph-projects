@@ -1,8 +1,15 @@
 # Zero Alerts
 
 **Owner:** Suph · **Started:** Aug 2026 · **Status:** Active, framing stage
-**Sub-projects:** [The Weighing Machine](weighing-machine/REQUIREMENTS.md) (requirements in progress)
-**Last updated:** 2026-08-19 (say-back after Christina walkthrough + meeting record from LaNae 8/18, Julie 8/17, David 8/17, Brent 8/18)
+**Last updated:** 2026-08-19
+
+**This project has three pieces:**
+
+| Piece | What it is | Where |
+|---|---|---|
+| **This doc** | The strategy: thesis, the UW's four jobs, the dwelling age worked example, terminology, open questions | you're reading it |
+| **The Weighing Machine** | Sub-project: the model that prices any alert (binds gained vs NOCs/NOEs/premium lost). Requirements + first-pass Python, 26 passing tests | [weighing-machine/](weighing-machine/REQUIREMENTS.md) |
+| **The Dwelling Age Thesis** | The visual walkthrough for messaging the team | [artifact](https://claude.ai/code/artifact/f9cc6eb3-5a61-41d8-9d7c-3e485e2404d1) · [source](thesis.html) |
 
 ---
 
