@@ -9,7 +9,8 @@
 |---|---|---|
 | **This doc** | The strategy: thesis, the UW's four jobs, the dwelling age worked example, terminology, open questions | you're reading it |
 | **The Weighing Machine** | Sub-project: the model that prices any alert (binds gained vs NOCs/NOEs/premium lost). Requirements + first-pass Python, 26 passing tests | [weighing-machine/](weighing-machine/REQUIREMENTS.md) |
-| **The Dwelling Age Thesis** | The visual walkthrough for messaging the team | [artifact](https://claude.ai/code/artifact/f9cc6eb3-5a61-41d8-9d7c-3e485e2404d1) · [source](thesis.html) |
+| **The deck: Killing the Dwelling Age Alert** | The presentable version, 13 slides, arrow keys to advance | [deck](https://claude.ai/code/artifact/ee09fae6-e609-423e-ba7f-fd3d58332bcf) · [source](deck.html) |
+| **The page** | The same story as a scrolling walkthrough | [page](https://claude.ai/code/artifact/f9cc6eb3-5a61-41d8-9d7c-3e485e2404d1) · [source](thesis.html) |
 
 ---
 
@@ -31,10 +32,11 @@
 - Per David: **the bind lift is already proven.** The entire open question is the cost side (NOCs, NOEs, lost premium, agents walking away). So the weighing machine is really a cost-pricing machine.
 - **The thesis, stated properly:** automate the four jobs the underwriter does on this alert (approve, roof exclusion, data corrections, eligibility soft-checks) so the system duplicates the UW exactly. THEN turn off the alert. Expected result: **no increase in NOCs or NOEs**, because the same interventions still happen, just before bind and automated. If that holds, the alert can go.
 - How close to zero? Today the unreviewed twin gets about **2 extra NOCs per 100 policies** vs the reviewed book (6.5 vs 4.5). Of those 2: about **1.5 come from things our levers automate** (roof, eligibility, data). The last ~0.5 comes from things the on-site inspection finds, which the UW review doesn't prevent today either. So with working levers, removal adds close to zero — not exactly zero. (Full reason-by-reason breakdown in §6b.)
+- Put positively: **the underwriter HAS been protecting the book** — about 2 NOCs per 100 prevented — and that protection sits almost entirely in the jobs we are automating (roof, eligibility, honest data). The chart is on the deck's "protecting the book" slide.
 - **Automation alone buys zero growth — it only defends the NOC rate.** The 63 of 100 who die at the roadblock never even submit; automating what happens behind the alert recovers none of them. They come back only when the alert itself disappears. So: automation is the hedge, removal is the unlock. Both, in that order.
 - **And the carry-over has to be proven, not assumed.** Once the levers exist, remove the alert for a small slice (say 10%) and watch whether the systems truly duplicate the UW: NOC and fix rates on the un-gated slice should hold at reviewed-book levels. That is the test that makes sense: a 10% test AFTER the levers are built, not a 7-state discovery test before them.
 - **The leftover NOCs carry over, and they're the next frontier.** Even with a UW reviewing every 101+ bind, the reviewed book still runs ~4.5 NOCs and ~3.9 NOEs per 100 bound (within 90 days). Duplicating the UW keeps that rate — it doesn't fix it. Not great. §6b says what those leftover NOCs are made of (mostly Condition-General and Liability findings from the post-bind inspection), so improving it is a different problem than the alert: condition information before bind (imagery or an inspection), not data review. That optimization is worth doing whether or not the alert lives.
-- The rubber-stamp rate (~45% today, ~80% if the levers land) is a **gauge** of how much UW value is left in the review, not the finish line. At 80%, the machine's question becomes: does the remaining 20% of interventions beat the friction cost imposed on 100% of quotes?
+- **The goal: "approve, touching nothing" goes from 46.5% to 90% or better.** The underwriter opens the referral and finds nothing left to do, because the system already did it. That climb is the gauge that the fixes work, measured while the alert is still on and nothing can go wrong. It is a gauge, not the finish line. At 80%, the machine's question becomes: does the remaining 20% of interventions beat the friction cost imposed on 100% of quotes?
 - The machine works both directions: alerts to **remove** and proposed alerts to **add**.
 
 ## 3. The Weighing Machine
