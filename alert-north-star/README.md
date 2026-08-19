@@ -1,7 +1,5 @@
 # Zero Alerts
 
-*(formerly "Alert North Star" — renamed 8/19: alerts aren't the north star, growth without agent friction is; zero underwriting alerts is how we measure it)*
-
 **Owner:** Suph · **Started:** Aug 2026 · **Status:** Active, framing stage
 **Sub-projects:** [The Weighing Machine](weighing-machine/REQUIREMENTS.md) (requirements in progress)
 **Last updated:** 2026-08-19 (say-back after Christina walkthrough + meeting record from LaNae 8/18, Julie 8/17, David 8/17, Brent 8/18)
