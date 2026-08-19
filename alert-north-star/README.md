@@ -136,13 +136,21 @@ Caveats: small n per cell (the twin's roof row = 12 events), 90-day window only,
 - **4.1% vs 2% voluntary referral rate (just-under cohort): partially resolved.** Both are real cuts of the same rate — 4.1% (Two Houses, YTD window) vs ~2% (8/13 twin cut, Jan-May). Which is right is still open (window vs filter drift), but note: if the clean book runs ~2%, the just-under cohort referring at 4.1% is 2x the base rate — which STRENGTHENS the "agents self-refer when genuinely worried" argument.
 - **Reference points to reuse:** NOC/NOE baseline ramps ~+22.8% per decade of dwelling age (30-60yr baseline: NOC 2.75 / NOE 5.11 per 100). Foregone premium from un-run UW edits ~$3,034 per 100 bound, ~0% recovered at renewal.
 
-## 8. The test that probably isn't happening
+## 8. The playbook: order of operations for any alert
 
-- **The 7-state 50/50 test is likely off.** "Pick seven states and eat the NOCs" has no team appetite — a live test means real agents get real NOCs before we can size the risk.
-- **What survives from Julie's advice is the framing, and it points at the machine:** don't ask underwriting yes/no. Help them **size the risk** — upside, bounded downside — and route the business decision to Darren or Christine. Sizing the risk IS the weighing machine.
-- **So the sequence inverts:** the weighing machine comes FIRST. Weigh → present the sized risk → decision-makers pick a tolerance → automate the levers that beat it → remove. A live test becomes confirmation at the end, not the discovery step.
-- **The test that does make sense: a 10% canary after the levers exist.** Remove the alert on a small slice of traffic and verify the automated systems carry over (NOC / fix rates hold at reviewed-book levels). Small blast radius, and it measures the only thing left to prove.
-- Reference, if a test ever revives: 50/50 in the top 7 states (bind-to-NOC above 8.8:1 for 90-100yr homes; Illinois 21% bind), ~30-60 days for significance.
+The repeatable loop once the weighing machine exists. Dwelling age is the first pass; every later alert reruns the same steps cheaper.
+
+1. **Set the tolerance once (step zero).** LaNae/Darren agree what price is acceptable, in a named unit: uncured cancellations per 100 binds, 90 days. Without this, the machine outputs a number and an argument instead of a verdict.
+2. **Pick the alert.** By volume of forced reviews. Dwelling age is #1 (5,044 UW touches/month).
+3. **Weigh it.** Find the counterfactual twin (adjacent cohort or pre-alert era), run the machine: +binds, +NOCs, +NOEs, premium and labor deltas, with ranges. If the price is already under tolerance, skip straight to the canary — some alerts won't need levers at all.
+4. **Investigate the UW's jobs on that alert.** Action mix, what they change, what the residual gets NOC'd for. (Done for dwelling age: 46.5 / 25.3 / 28.2 / 8.4.)
+5. **Systematize the jobs.** Build the levers, turn them on.
+6. **Shadow-validate with the alert still ON.** Zero risk: the gate still catches everything. Two gauges, not one: (a) rubber-stamp % climbs (46.5% toward 80-90%) — the system is doing the jobs; (b) UW override rate on the system's actions stays low — they aren't undoing what it did. Fewer touches plus no corrections of the robot = faithful duplication.
+7. **Canary removal.** Alert off for ~10% of traffic. Verify the system rejects/excludes in the right scenarios (the eligibility lane matters most — 82% of real rejections live there) and NOC/fix rates on the canary hold at reviewed-book levels. Kill criteria pre-agreed. Timing reality: NOCs need ~90 days post-bind to read, so canary duration is a volume calculation the machine can do.
+8. **Re-weigh with real data, then ramp.** The canary replaces the counterfactual — measured, not projected. Present vs tolerance; ramp 10 → 50 → 100.
+9. **Log it and loop.** Residual monitor stays on; pick the next alert. The machine and levers are reusable infrastructure (the roof dial and pre-fill sourcing help every old-home alert, not just this one).
+
+Why this replaces the 7-state 50/50 test: "pick seven states and eat the NOCs" had no team appetite — it discovers the risk by paying it. The playbook sizes risk on paper (step 3), proves duplication at zero risk (step 6), and only then exposes a small slice (step 7). What survives from Julie's advice is the framing: don't ask underwriting yes/no, help them size the risk, and route the decision to Darren or Christine. Reference if a bigger test ever revives: 50/50 in the top 7 states (bind-to-NOC above 8.8:1 for 90-100yr homes), ~30-60 days.
 
 ## 9. Open questions
 
