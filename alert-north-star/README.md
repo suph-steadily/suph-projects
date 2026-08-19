@@ -205,6 +205,9 @@ Published artifacts (mine):
 - [Why Old Roofs Slip Through](https://claude.ai/code/artifact/cc9e164c-8f41-40d1-8d02-99e3b152a43e) — the roof exclusion dial gap (3.5% vs 20%).
 - [DAMR — pre-fill flip validation](https://claude.ai/code/artifact/6b9d96a2-67b1-496f-9f08-ce2d9fbda1b6) — agent-touched values corrected 2-6x more (8/7).
 - [The Pre-fill Bake-off](https://claude.ai/code/artifact/f743c2ea-d0a3-4555-8c6b-41eddcaf69b5) — provider comparison design (8/17).
+- [Water Automation — Bind-Rate Impact](https://claude.ai/code/artifact/3f60f61a-020f-4464-b864-3ce4c172aaef) — the lived proof that automation alone adds zero binds (the weighing machine's backtest case).
+- [Excessive-Claims Automation — Live Impact](https://claude.ai/code/artifact/693290c3-65a0-47a5-8f8a-6acecc728e18) — the claims-alert automation program this playbook generalizes.
+- [Claims Alerts Walkthrough — Agent & Underwriter (Prototype)](https://claude.ai/code/artifact/63c4f2b7-1e80-487d-8ea9-6fee25db0c8c) — what the alert experience looks like on both sides of the screen.
 
 Shared with me:
 
