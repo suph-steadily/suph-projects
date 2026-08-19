@@ -35,7 +35,7 @@
 What it must output for any alert:
 
 - How many more binds
-- How many more NOCs / NOEs (post-bind letters)
+- How many more NOCs / NOEs (as defined in the Terminology section: UW cancellation events and UW corrective endorsement transactions, not letter counts)
 - GWP gained or lost
 - Loss-ratio impact (lagging; counts are the leading proxies)
 
@@ -62,7 +62,7 @@ What removal costs and gains (91-100 twin layered onto 101+, validated against T
 
 - **~+115 binds/month** (range +50 to +175; top-7-states cut = +107), **~+25 NOCs/month** (range +10 to +40), **~+30 UW corrective endorsements/month**, and ~2,200 forced UW reviews/month eliminated.
 - **Rates, correctly labeled:** NOC 4.5% → 6.5% (+1.9pt, ~43% lift); UW-fix rate 3.9% → 7.5% (+3.6pt, ~2x). The earlier "NOC 3.9→7.5-8" swapped the two metrics. Caveat: the twin's 6.5 is a floor — the 101+ book averages 117 years, and trend projection gives an un-reviewed NOC rate of 7-11 per 100.
-- **~$26K/month premium from UW corrections** would go un-captured (deliberately bound-only; fixes raise price 3.4x more often than they lower it; ~$3,000 per 100 bound policies, never recovered at renewal — the "$67/policy" figure appears in no artifact). The $1.4M vs $310K annual figures are being reconciled (agent in flight).
+- **~$26K/month premium from UW corrections** would go un-captured (bound-only; fixes raise price 3.4x more often than they lower it; $3,034 per 100 bound, never recovered at renewal). **$1.4M vs $310K: RECONCILED 8/19.** Same analysis (Jan 15-Jul 22 window), two denominators: $1.4M/yr = corrections across ALL approved quotes, 78% of which never bound (phantom premium — retire this number); **$310K/yr = bound-only, the real collected revenue — use this one.** The "$67/policy" was per approved quote; per bound policy it's $30. Strict floor if the sister book's ~12% post-bind recovery is netted out: ~$270K/yr.
 - Evidence the alert adds little risk-screening value: the pre-alert cohort (pre-March 2025) and the 95-year-old cohort both behave identically to the general population.
 
 ## 5. The levers (the UW's jobs, plus one alternative)
@@ -79,7 +79,7 @@ What removal costs and gains (91-100 twin layered onto 101+, validated against T
 
 ## 6. Why NOCs and NOEs are the sensitive weights (Darren + LaNae)
 
-- **NOC and NOE are both post-bind letters, and both are bad experiences.** The deal changes after it closed: NOC cancels the policy, NOE forces a coverage change the customer didn't ask for. They are jointly the thing we are trying to mitigate; NOC is the more severe, but they sit in the same bait-and-switch category and both count on the cost side of the weighing machine.
+- **NOC and NOE are both bad experiences, and jointly what we are trying to mitigate.** The deal changes after it closed: a NOC cancels the policy, a corrective endorsement takes coverage away (and the statutory NOE letter announces it). NOC is the more severe, but they sit in the same bait-and-switch category and both count on the cost side of the weighing machine.
 - **Darren's early data: 3 NOCs = you lose the agent permanently** (not just the policy). First NOC that proceeds to cancellation correlates with **~20% drop in future buys from that agent**. Early data points, not published figures.
 - **LaNae's two reasons NOCs sting:** the bait-and-switch perception (the deal changed after bind) and the remediation burden (legally required to specify exactly what must be fixed).
 - UAR was tried as a pre-cancellation softener and abandoned: agents read it as a cancellation anyway.
@@ -90,7 +90,7 @@ What removal costs and gains (91-100 twin layered onto 101+, validated against T
 
 Pulled from the 8/16 snapshot tables (bound cohorts, 90-day window; NOC sub-reasons from the Salesforce UW cancellation picklist; totals reconcile exactly with the published 4.52 vs 6.46 NOC/100 pair).
 
-**NOC (NOC) reasons, reviewed 101+ (DAMR) vs its un-reviewed just-under twin (JU = what removal looks like), per 100 bound:**
+**NOC reasons, reviewed 101+ (DAMR) vs its un-reviewed just-under twin (JU = what removal looks like), per 100 bound:**
 
 | Reason | DAMR 101+ | JU 91-100 | Gap (removal cost) |
 |---|---|---|---|
@@ -118,7 +118,8 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 - **The 45% do-nothing is not free.** Part of its value is deterrence, and the catch rate on intervened policies is real (6.8% vs. 3.3% baseline). Price it, don't dismiss it.
 - **Loss ratio is lagging.** Counts (binds, NOCs, NOEs, cancellations) are the leading proxies, which is why the machine is denominated in them.
 - **Terminology is unresolved.** NOC vs. NOE vs. UAR get used loosely (an NOE rate can exceed the NOC rate, they are separate letters). Sync definitions with LaNae before reporting numbers. All three are letters and post-bind.
-- **$1.4M vs. $310K** premium-recapture figures do not reconcile yet. Fix before Thursday.
+- ~~$1.4M vs. $310K~~ **Reconciled 8/19 (see §4):** $1.4M = all-approved (mostly never-bound, retire it); $310K/yr bound-only is the Thursday number.
+- **4.1% vs 2% voluntary referral rate (just-under cohort): partially resolved.** Both are real cuts of the same rate — 4.1% (Two Houses, YTD window) vs ~2% (8/13 twin cut, Jan-May). Which is right is still open (window vs filter drift), but note: if the clean book runs ~2%, the just-under cohort referring at 4.1% is 2x the base rate — which STRENGTHENS the "agents self-refer when genuinely worried" argument.
 - **Reference points to reuse:** NOC/NOE baseline ramps ~+22.8% per decade of dwelling age (30-60yr baseline: NOC 2.75 / NOE 5.11 per 100). Foregone premium from un-run UW edits ~$3,034 per 100 bound, ~0% recovered at renewal.
 
 ## 8. The test that probably isn't happening (updated 8/19)
@@ -133,7 +134,7 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 - **The gate:** what NOC increase will LaNae accept? Never asked directly.
 - What is one bind worth vs. one NOC, in dollars? (Bind LTV, NOC cost, agent attrition = the Curry model inputs.)
 - ~~What are 101+ policies actually getting NOC'd FOR?~~ **Answered 8/19, see §6b.** Headline: ~3/4 of the removal-induced NOC increase sits in lever-addressable categories; the dominant NOC bucket (Condition - General) was never review-preventable.
-- What share of NOEs for 90-100yr homes are roof exclusions? If ~50%+, strong case to retarget the model for this cohort now.
+- ~~What share of NOEs for 90-100yr homes are roof exclusions?~~ **Answered in §6b: 59% (JU) / 53% (DAMR)** — well past the ~50% bar, so the case to retarget the roof model for this cohort is made.
 - Does Texas (longest roof-model bake) already show the manual 15% roof-exclusion rate dropping?
 - Once the levers land and rubber-stamp hits ~80%, does the machine say kill? Run it, don't assume.
 - Which alert goes second?
@@ -142,7 +143,7 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 
 - [ ] **Thursday 8/20: proposal for the underwriting sync.** Dwelling age as weighing machine v1: bind upside, bounded downside, three levers as mitigants. Framed as risk-sizing, not a yes/no ask. Decision routes to Darren/Christine.
 - [ ] **Ask LaNae her tolerance number** (or make it the explicit ask inside the Thursday proposal).
-- [ ] Reconcile $1.4M vs. $310K before Thursday.
+- [x] ~~Reconcile $1.4M vs. $310K.~~ Done 8/19: $310K/yr bound-only is the number; $1.4M is phantom (all-approved).
 - [ ] Meet David Curry: scope the bind/NOC model (bind LTV, NOC cost, UW premium per alert).
 - [ ] With Curry: expand roof-exclusion threshold to bottom 20% for older dwellings.
 - [ ] Check Texas NOC/NOE data for roof-model impact.
@@ -153,6 +154,24 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 - [ ] Validate Darren's three-NOC rule when his final figures land.
 
 ---
+
+## Terminology (locked 8/19; definitions verified 8/17 in the book)
+
+- UAR, NOC, and NOE are all LETTERS, and all post-bind. UAR = Underwriting Action Required, a warning letter with a response deadline (~1,270/mo). NOC = Notice of Cancellation (~1,570/mo). NOE = Notice of Endorsement, the statutory letter announcing an adverse coverage change UW already made (only ~350/mo company-wide).
+- One workflow drives UAR and NOC (modes uar / uarnoc / noc). 73% of NOCs have a UAR parent, 27% are issued directly, and 93% of UARs still end in a NOC.
+- **Shorthand in THIS doc:** "NOC" = a UW cancellation event under the cancellation_reason='Inspection' umbrella (14 reason types collapse into that bucket; the name does not mean inspection-caused), gross of cure unless stated. "NOE" = a UW corrective endorsement TRANSACTION (attribute correction or exclusion change by a UW actor) — roughly 45x the statutory letter volume, so never compare our counts to letter counts.
+- A NOC issued is not a policy lost: **74% of NOCs cure**, and 23.3% of inspection-NOC policies reinstate within 90 days. Every NOC number must state its stage: letters/events (gross) or cancellations that stuck (uncured).
+- Bare "NOC" elsewhere in the company includes non-payment cancellations. Always say "underwriting" when quoting a rate.
+- Salesforce cannot referee any of this: the 'UAR/NOC Approval' category cannot separate a UAR from a NOC, over-counts by ~20%, and misses ~50% of inspection-NOC policies. Counts come from the eventstore.
+- Darren's metrics, precisely: his attrition result keys to the first UNCURED cancellation (~-20% of that agent's production for a year, front-loaded); cured NOCs price at ~0 to -2% per event. The "3 NOCs = agent gone" soundbite has no stated denominator in his own report — park it until he names the unit.
+
+### Definitions to lock with LaNae before quoting numbers Thursday
+
+- **Name the unit of her tolerance.** "NOC increase I'd accept" can mean letters sent, policies cancelled, or cancelled net of cure — at 74% cure those differ ~4x. Proposal: set the gate on uncured cancellations per 100 binds, 90d.
+- **Decide how a cured NOC counts.** Her two stated pains (bait-and-switch perception, remediation burden) attach to the LETTER, which lands even when the policy cures. If that's the real pain, the tolerance needs two numbers: a letter budget and an uncured budget.
+- **Pre-agree the NOE relabel** (transactions vs the ~350/mo statutory letters) so her team doesn't reconcile us against letter volume and find us 45x off.
+- **Confirm NOC scope**: ours = UW cancellations only, all 14 reasons, no non-pay. Darren's book-wide gross is 11.7% of new binds in 90d; the twin runs 6.5/100; our reviewed 101+ book runs 4.5.
+- **Fix the clock**: everything is per 100 bound, 90-day window (median bind-to-NOC 44 days, ~90% inside 90).
 
 ## Appendix: sources
 
