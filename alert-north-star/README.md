@@ -9,7 +9,7 @@
 ## 1. The North Star
 
 - The North Star is not "zero alerts" for its own sake. It is **growth without agent friction**: grow the business safely, with no underwriting roadblocks in the agent's path.
-- Zero underwriting alerts is the measurable expression of that. Alerts protect the book, but they lose binds. **Out of 100 quotes whose only obstacle is the dwelling age alert: 63 never get referred (the roadblock scares the agent off before any human looks), 21 get referred but never bind, and 16 become policies.** The loss is upstream of the underwriter, not in the decision: referrals that do get approved go on to issue at 46-51%. *(Two Houses funnel, validated 8/19. The Findings artifact's wider cohort cut puts never-referred at 55% instead of 63; same story, different cut.)*
+- Zero underwriting alerts is the measurable expression of that. Alerts protect the book, but they lose binds. **Out of 100 quotes whose only obstacle is the dwelling age alert: 63 never get referred (the roadblock scares the agent off before any human looks), 21 get referred but never bind, and 16 become policies.** The loss is upstream of the underwriter, not in the decision: referrals that do get approved go on to issue at 46-51%.
 - Leadership already agrees on direction, in slightly different words:
   - **Christine:** zero underwriting alerts; the real fix may be better upstream pre-fill data, not per-alert patches.
   - **LaNae:** zero underwriting alerts for older dwellings. Strong preference to say no or add friction upfront rather than cancel post-bind.
@@ -48,7 +48,7 @@ Status after the LaNae 8/18 meeting, this is no longer a mystery project:
 
 ## 4. Worked example: dwelling age (weighing machine v0)
 
-What underwriters do with the 101+ alert today (n=10,428 analyzable approvals, validated 8/19 against the Findings artifact):
+What underwriters do with the 101+ alert today (n=10,428 analyzable approvals):
 
 - **46.5%: nothing.** Approve with no change of any kind. (Rubber stamp.)
 - **14.0%: roof-surfacing exclusion only.**
@@ -56,11 +56,11 @@ What underwriters do with the 101+ alert today (n=10,428 analyzable approvals, v
 - **28.2%: changes without a roof exclusion** (mostly data corrections). Six property fields carry ~90% of the corrections (~95% of pure attribute edits).
 - **8.4% of asked referrals are rejected** — the gate's real defense; 82% of rejections are commercial / historic / unit-count, not age itself. "Real judgment" is ~11% of approvals.
 
-What removal costs and gains (91-100 twin layered onto 101+, validated against Two Houses / The Dwelling Age Plan):
+What removal costs and gains (91-100 twin layered onto 101+):
 
 - **~+115 binds/month** (range +50 to +175; top-7-states cut = +107), **~+25 NOCs/month** (range +10 to +40), **~+30 UW corrective endorsements/month**, and ~2,200 forced UW reviews/month eliminated.
-- **Rates, correctly labeled:** NOC 4.5% → 6.5% (+1.9pt, ~43% lift); UW-fix rate 3.9% → 7.5% (+3.6pt, ~2x). The earlier "NOC 3.9→7.5-8" swapped the two metrics. Caveat: the twin's 6.5 is a floor — the 101+ book averages 117 years, and trend projection gives an un-reviewed NOC rate of 7-11 per 100.
-- **~$26K/month premium from UW corrections** would go un-captured (bound-only; fixes raise price 3.4x more often than they lower it; $3,034 per 100 bound, never recovered at renewal). **$1.4M vs $310K: RECONCILED 8/19.** Same analysis (Jan 15-Jul 22 window), two denominators: $1.4M/yr = corrections across ALL approved quotes, 78% of which never bound (phantom premium — retire this number); **$310K/yr = bound-only, the real collected revenue — use this one.** The "$67/policy" was per approved quote; per bound policy it's $30. Strict floor if the sister book's ~12% post-bind recovery is netted out: ~$270K/yr.
+- **The rates:** NOC 4.5% → 6.5% (+1.9pt); UW-fix rate 3.9% → 7.5% (+3.6pt, ~2x). Caveat: the twin's 6.5 is a floor — the 101+ book averages 117 years, and trend projection gives an un-reviewed NOC rate of 7-11 per 100.
+- **~$26K/month premium from UW corrections** would go un-captured (bound-only; fixes raise price 3.4x more often than they lower it; $3,034 per 100 bound, never recovered at renewal). **Use $310K/yr** (bound-only, real collected revenue; ~$30 per bound policy). The $1.4M figure counts corrections on all approved quotes, 78% of which never bound. Strict floor: ~$270K/yr net of the ~12% the sister book recovers post-bind.
 - Evidence the alert adds little risk-screening value: the pre-alert cohort (pre-March 2025) and the 95-year-old cohort both behave identically to the general population.
 
 ## 5. The levers (the UW's jobs, plus one alternative)
@@ -73,7 +73,6 @@ What removal costs and gains (91-100 twin layered onto 101+, validated against T
 | **Premium age modifier (alternative)** | n/a | Instead of fixing every attribute, price the uncertainty: ~10% bump for 100+ homes, reduced as accuracy improves | Actuarial input ("what rate adjustment maintains loss ratio if corrections never happen?"). Admitted states need rate filings, so not a fast follow. |
 
 - If the first three land, expect rubber-stamp to go from 46.5% toward ~80% (the ~80% is a projection, not a measured number).
-- All figures in this section validated 8/19 against the source artifacts (Why Old Roofs Slip Through, pre-fill flip validation, What Must Be True). Two dictated numbers corrected: "UWs apply ~20%" → 21.3 per 100, and "model targets bottom 5%" → ~4% actioned.
 
 ## 6. Why NOCs and NOEs are the sensitive weights (Darren + LaNae)
 
@@ -84,9 +83,9 @@ What removal costs and gains (91-100 twin layered onto 101+, validated against T
 - We know the three-strike rule of thumb but not the full underlying mechanism. The scratch-darren curves (74% of NOCs cure; cured NOCs cost ~0 to -2% per event vs. cancellations at -20% front-loaded) are the start of the evidence.
 - The optimistic logic: if we do the UW's jobs really well, **the NOC rate should not change** relative to today. The same interventions happen, just automated pre-bind. Residual NOCs exist today with a UW in every single 101+ journey, so they are a standing optimization target **whether or not the alert lives.**
 
-## 6b. What dwelling-age NOCs and NOEs are actually FOR (answered 8/19)
+## 6b. What dwelling-age NOCs and NOEs are actually FOR
 
-Pulled from the 8/16 snapshot tables (bound cohorts, 90-day window; NOC sub-reasons from the Salesforce UW cancellation picklist; totals reconcile exactly with the published 4.52 vs 6.46 NOC/100 pair).
+Bound cohorts, 90-day window, per 100 bound. NOC sub-reasons from the UW cancellation picklist.
 
 **NOC reasons, reviewed 101+ (DAMR) vs its un-reviewed just-under twin (JU = what removal looks like), per 100 bound:**
 
@@ -110,7 +109,7 @@ What this says:
 
 Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the selection-effect floor from §7 still applies.
 
-**Why the review "misses" the residual (answered 8/19, evidence not speculation):**
+**Why the review misses the residual:**
 
 - **The residual is the post-bind inspection lane.** The pre-bind UW review is a desk review; zero pre-bind inspections exist. The exterior inspection completes ~day 21 after bind and surfaces conditions no pre-bind data source carried.
 - The NOC'd policies scored a **median 125 deficiency points** on inspection (63% over 100) vs. median 10 for the clean book. **Zero NOCs occur before day 21**; 184 of 192 NOC'd policies had a completed inspection strictly before the cancellation (median gap 37 days = the UAR response window).
@@ -125,11 +124,10 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 - **The 45% do-nothing is not free.** Part of its value is deterrence, and the catch rate on intervened policies is real (6.8% vs. 3.3% baseline). Price it, don't dismiss it.
 - **Loss ratio is lagging.** Counts (binds, NOCs, NOEs, cancellations) are the leading proxies, which is why the machine is denominated in them.
 - **Terminology is unresolved.** NOC vs. NOE vs. UAR get used loosely (an NOE rate can exceed the NOC rate, they are separate letters). Sync definitions with LaNae before reporting numbers. All three are letters and post-bind.
-- ~~$1.4M vs. $310K~~ **Reconciled 8/19 (see §4):** $1.4M = all-approved (mostly never-bound, retire it); $310K/yr bound-only is the Thursday number.
 - **4.1% vs 2% voluntary referral rate (just-under cohort): partially resolved.** Both are real cuts of the same rate — 4.1% (Two Houses, YTD window) vs ~2% (8/13 twin cut, Jan-May). Which is right is still open (window vs filter drift), but note: if the clean book runs ~2%, the just-under cohort referring at 4.1% is 2x the base rate — which STRENGTHENS the "agents self-refer when genuinely worried" argument.
 - **Reference points to reuse:** NOC/NOE baseline ramps ~+22.8% per decade of dwelling age (30-60yr baseline: NOC 2.75 / NOE 5.11 per 100). Foregone premium from un-run UW edits ~$3,034 per 100 bound, ~0% recovered at renewal.
 
-## 8. The test that probably isn't happening (updated 8/19)
+## 8. The test that probably isn't happening
 
 - **The 7-state 50/50 test is likely off.** "Pick seven states and eat the NOCs" has no team appetite — a live test means real agents get real NOCs before we can size the risk.
 - **What survives from Julie's advice is the framing, and it points at the machine:** don't ask underwriting yes/no. Help them **size the risk** — upside, bounded downside — and route the business decision to Darren or Christine. Sizing the risk IS the weighing machine.
@@ -140,8 +138,6 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 
 - **The gate:** what NOC increase will LaNae accept? Never asked directly.
 - What is one bind worth vs. one NOC, in dollars? (Bind LTV, NOC cost, agent attrition = the Curry model inputs.)
-- ~~What are 101+ policies actually getting NOC'd FOR?~~ **Answered 8/19, see §6b.** Headline: ~3/4 of the removal-induced NOC increase sits in lever-addressable categories; the dominant NOC bucket (Condition - General) was never review-preventable.
-- ~~What share of NOEs for 90-100yr homes are roof exclusions?~~ **Answered in §6b: 59% (JU) / 53% (DAMR)** — well past the ~50% bar, so the case to retarget the roof model for this cohort is made.
 - Does Texas (longest roof-model bake) already show the manual 15% roof-exclusion rate dropping?
 - Once the levers land and rubber-stamp hits ~80%, does the machine say kill? Run it, don't assume.
 - Which alert goes second?
@@ -150,11 +146,9 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 
 - [ ] **Thursday 8/20: proposal for the underwriting sync.** Dwelling age as weighing machine v1: bind upside, bounded downside, three levers as mitigants. Framed as risk-sizing, not a yes/no ask. Decision routes to Darren/Christine.
 - [ ] **Ask LaNae her tolerance number** (or make it the explicit ask inside the Thursday proposal).
-- [x] ~~Reconcile $1.4M vs. $310K.~~ Done 8/19: $310K/yr bound-only is the number; $1.4M is phantom (all-approved).
 - [ ] Meet David Curry: scope the bind/NOC model (bind LTV, NOC cost, UW premium per alert).
 - [ ] With Curry: expand roof-exclusion threshold to bottom 20% for older dwellings.
 - [ ] Check Texas NOC/NOE data for roof-model impact.
-- [x] ~~Pull NOC reason codes for the 101+ cohort.~~ Done 8/19 (§6b).
 - [ ] Build the LandGlide (or equivalent) pre-fill sourcing case, starting with 101+ homes; get SmartSource pricing.
 - [ ] Explore the premium age modifier with actuarial.
 - [ ] Review the conditional liability exclusion form (eng + comms lift).
@@ -162,7 +156,7 @@ Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the sel
 
 ---
 
-## Terminology (locked 8/19; definitions verified 8/17 in the book)
+## Terminology
 
 - UAR, NOC, and NOE are all LETTERS, and all post-bind. UAR = Underwriting Action Required, a warning letter with a response deadline (~1,270/mo). NOC = Notice of Cancellation (~1,570/mo). NOE = Notice of Endorsement, the statutory letter announcing an adverse coverage change UW already made (only ~350/mo company-wide).
 - One workflow drives UAR and NOC (modes uar / uarnoc / noc). 73% of NOCs have a UAR parent, 27% are issued directly, and 93% of UARs still end in a NOC.
