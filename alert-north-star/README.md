@@ -33,8 +33,8 @@
 - How close to zero? Today the unreviewed twin gets about **2 extra NOCs per 100 policies** vs the reviewed book (6.5 vs 4.5). Of those 2: about **1.5 come from things our levers automate** (roof, eligibility, data). The last ~0.5 comes from things the on-site inspection finds, which the UW review doesn't prevent today either. So with working levers, removal adds close to zero — not exactly zero. (Full reason-by-reason breakdown in §6b.)
 - **Automation alone buys zero growth — it only defends the NOC rate.** The 63 of 100 who die at the roadblock never even submit; automating what happens behind the alert recovers none of them. They come back only when the alert itself disappears. So: automation is the hedge, removal is the unlock. Both, in that order.
 - **And the carry-over has to be proven, not assumed.** Once the levers exist, remove the alert for a small slice (say 10%) and watch whether the systems truly duplicate the UW: NOC and fix rates on the un-gated slice should hold at reviewed-book levels. That is the test that makes sense — a canary AFTER the levers are built, not a 7-state discovery test before them.
-- **The residual carries over, and it's the next frontier.** Even with a UW reviewing every 101+ bind, the reviewed book still runs ~4.5 NOCs and ~3.9 NOEs per 100 (90d). Duplicating the UW keeps that rate — it doesn't fix it. Not great. §6b says what it's made of (mostly Condition-General and Liability findings from the post-bind inspection), so improving it is a different problem than the alert: pre-bind condition signal (imagery/inspection), not data review. That optimization is worth doing whether or not the alert lives.
-- The rubber-stamp rate (~45% today, ~80% if the levers land) is a **gauge** of residual UW value, not the finish line. At 80%, the machine's question becomes: does the remaining 20% of interventions beat the friction cost imposed on 100% of quotes?
+- **The leftover NOCs carry over, and they're the next frontier.** Even with a UW reviewing every 101+ bind, the reviewed book still runs ~4.5 NOCs and ~3.9 NOEs per 100 (90d). Duplicating the UW keeps that rate — it doesn't fix it. Not great. §6b says what those leftover NOCs are made of (mostly Condition-General and Liability findings from the post-bind inspection), so improving it is a different problem than the alert: pre-bind condition signal (imagery/inspection), not data review. That optimization is worth doing whether or not the alert lives.
+- The rubber-stamp rate (~45% today, ~80% if the levers land) is a **gauge** of how much UW value is left in the review, not the finish line. At 80%, the machine's question becomes: does the remaining 20% of interventions beat the friction cost imposed on 100% of quotes?
 - The machine works both directions: alerts to **remove** and proposed alerts to **add**.
 
 ## 3. The Weighing Machine
@@ -92,7 +92,7 @@ What removal costs and gains (91-100 twin layered onto 101+):
 - **LaNae's two reasons NOCs sting:** the bait-and-switch perception (the deal changed after bind) and the remediation burden (legally required to specify exactly what must be fixed).
 - UAR was tried as a pre-cancellation softener and abandoned: agents read it as a cancellation anyway.
 - We know the three-strike rule of thumb but not the full underlying mechanism. The scratch-darren curves (74% of NOCs cure; cured NOCs cost ~0 to -2% per event vs. cancellations at -20% front-loaded) are the start of the evidence.
-- The optimistic logic: if we do the UW's jobs really well, **the NOC rate should not change** relative to today. The same interventions happen, just automated pre-bind. Residual NOCs exist today with a UW in every single 101+ journey, so they are a standing optimization target **whether or not the alert lives.**
+- The optimistic logic: if we do the UW's jobs really well, **the NOC rate should not change** relative to today. The same interventions happen, just automated pre-bind. Leftover NOCs exist today with a UW in every single 101+ journey, so they are a standing optimization target **whether or not the alert lives.**
 
 ## 6b. What dwelling-age NOCs and NOEs are actually FOR
 
@@ -118,14 +118,14 @@ What this says:
 
 Caveats: small n per cell (the twin's roof row = 12 events), 90-day window only, and the selection-effect floor from §7 still applies.
 
-**Why the review misses the residual:**
+**Why the review misses the leftover NOCs:**
 
-- **The residual is the post-bind inspection lane.** The pre-bind UW review is a desk review; zero pre-bind inspections exist. The exterior inspection completes ~day 21 after bind and surfaces conditions no pre-bind data source carried.
+- **The leftover NOCs come from the post-bind inspection.** The pre-bind UW review is a desk review; zero pre-bind inspections exist. The exterior inspection completes ~day 21 after bind and surfaces conditions no pre-bind data source carried.
 - The NOC'd policies scored a **median 125 deficiency points** on inspection (63% over 100) vs. median 10 for the clean book. **Zero NOCs occur before day 21**; 184 of 192 NOC'd policies had a completed inspection strictly before the cancellation (median gap 37 days = the UAR response window).
 - **No rubber-stamp fingerprint.** The approvals that later blew up got the same UW edit intensity (18.7% vs 24.5%) and the same decision types as the ones that stayed clean. Editing did not prevent blow-up. The UW isn't missing something visible; the desk review has no eyes on the property.
 - **Exception that proves the aperture lever:** of the 12 Condition-Roof NOCs on the reviewed book, 0 of 11 checkable had the roof exclusion at bind. The roof job was skipped on exactly these, and it bit.
-- The residual NOEs are a **severity-graded response to inspection findings**: moderate scores (80-100) get a corrective endorsement within ~2 weeks of inspection (trampoline 25, private structures 30, roof ACV 11, animal liability 4 — classic exterior findings); severe scores (125+) get the UAR/NOC track.
-- Implication: shrinking the residual means **moving condition signal pre-bind** (imagery at quote time, attestation questions for trampolines/animals/structures) or accepting it as the cost of writing old homes. Either way it's a different problem than the alert.
+- The leftover NOEs are a **severity-graded response to inspection findings**: moderate scores (80-100) get a corrective endorsement within ~2 weeks of inspection (trampoline 25, private structures 30, roof ACV 11, animal liability 4 — classic exterior findings); severe scores (125+) get the UAR/NOC track.
+- Implication: shrinking the leftover NOC rate means **moving condition signal pre-bind** (imagery at quote time, attestation questions for trampolines/animals/structures) or accepting it as the cost of writing old homes. Either way it's a different problem than the alert.
 
 ## 7. Missing dots and risks (the honest list)
 
@@ -143,12 +143,12 @@ The repeatable loop once the weighing machine exists. Dwelling age is the first 
 1. **Set the tolerance once (step zero).** LaNae/Darren agree what price is acceptable, in a named unit: uncured cancellations per 100 binds, 90 days. Without this, the machine outputs a number and an argument instead of a verdict.
 2. **Pick the alert.** By volume of forced reviews. Dwelling age is #1 (5,044 UW touches/month).
 3. **Weigh it.** Find the counterfactual twin (adjacent cohort or pre-alert era), run the machine: +binds, +NOCs, +NOEs, premium and labor deltas, with ranges. If the price is already under tolerance, skip straight to the canary — some alerts won't need levers at all.
-4. **Investigate the UW's jobs on that alert.** Action mix, what they change, what the residual gets NOC'd for. (Done for dwelling age: 46.5 / 25.3 / 28.2 / 8.4.)
+4. **Investigate the UW's jobs on that alert.** Action mix, what they change, what the leftover NOCs are for. (Done for dwelling age: 46.5 / 25.3 / 28.2 / 8.4.)
 5. **Systematize the jobs.** Build the levers, turn them on.
 6. **Shadow-validate with the alert still ON.** Zero risk: the gate still catches everything. Two gauges, not one: (a) rubber-stamp % climbs (46.5% toward 80-90%) — the system is doing the jobs; (b) UW override rate on the system's actions stays low — they aren't undoing what it did. Fewer touches plus no corrections of the robot = faithful duplication.
 7. **Canary removal.** Alert off for ~10% of traffic. Verify the system rejects/excludes in the right scenarios (the eligibility lane matters most — 82% of real rejections live there) and NOC/fix rates on the canary hold at reviewed-book levels. Kill criteria pre-agreed. Timing reality: NOCs need ~90 days post-bind to read, so canary duration is a volume calculation the machine can do.
 8. **Re-weigh with real data, then ramp.** The canary replaces the counterfactual — measured, not projected. Present vs tolerance; ramp 10 → 50 → 100.
-9. **Log it and loop.** Residual monitor stays on; pick the next alert. The machine and levers are reusable infrastructure (the roof dial and pre-fill sourcing help every old-home alert, not just this one).
+9. **Log it and loop.** Keep watching the leftover NOC rate; pick the next alert. The machine and levers are reusable infrastructure (the roof dial and pre-fill sourcing help every old-home alert, not just this one).
 
 Why this replaces the 7-state 50/50 test: "pick seven states and eat the NOCs" had no team appetite — it discovers the risk by paying it. The playbook sizes risk on paper (step 3), proves duplication at zero risk (step 6), and only then exposes a small slice (step 7). What survives from Julie's advice is the framing: don't ask underwriting yes/no, help them size the risk, and route the decision to Darren or Christine. Reference if a bigger test ever revives: 50/50 in the top 7 states (bind-to-NOC above 8.8:1 for 90-100yr homes), ~30-60 days.
 
