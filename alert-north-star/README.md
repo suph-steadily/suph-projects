@@ -112,6 +112,15 @@ What this says:
 
 Caveats: small n per cell (JU roof = 12 events), 90-day window only, and the selection-effect floor from §7 still applies.
 
+**Why the review "misses" the residual (answered 8/19, evidence not speculation):**
+
+- **The residual is the post-bind inspection lane.** The pre-bind UW review is a desk review; zero pre-bind inspections exist. The exterior inspection completes ~day 21 after bind and surfaces conditions no pre-bind data source carried.
+- The NOC'd policies scored a **median 125 deficiency points** on inspection (63% over 100) vs. median 10 for the clean book. **Zero NOCs occur before day 21**; 184 of 192 NOC'd policies had a completed inspection strictly before the cancellation (median gap 37 days = the UAR response window).
+- **No rubber-stamp fingerprint.** The approvals that later blew up got the same UW edit intensity (18.7% vs 24.5%) and the same decision types as the ones that stayed clean. Editing did not prevent blow-up. The UW isn't missing something visible; the desk review has no eyes on the property.
+- **Exception that proves the aperture lever:** of the 12 Condition-Roof NOCs on the reviewed book, 0 of 11 checkable had the roof exclusion at bind. The roof job was skipped on exactly these, and it bit.
+- The residual NOEs are a **severity-graded response to inspection findings**: moderate scores (80-100) get a corrective endorsement within ~2 weeks of inspection (trampoline 25, private structures 30, roof ACV 11, animal liability 4 — classic exterior findings); severe scores (125+) get the UAR/NOC track.
+- Implication: shrinking the residual means **moving condition signal pre-bind** (imagery at quote time, attestation questions for trampolines/animals/structures) or accepting it as the cost of writing old homes. Either way it's a different problem than the alert.
+
 ## 7. Missing dots and risks (the honest list)
 
 - **Selection effect.** Cohort layering assumes the same population applies after removal. Alerts also deter bad risks from submitting. The NOC projection is a **floor**, not an estimate.

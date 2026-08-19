@@ -1,0 +1,370 @@
+<title>The Dwelling Age Thesis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#FBFAF6; --card:#F3F1E9; --card2:#EEEBE0;
+    --ink:#232620; --ink2:#5C6055; --ink3:#8A8E7F;
+    --line:#DBD8CC; --line2:#C9C6B8;
+    --accent:#0B7A50; --accent-soft:#0B7A5018;
+    --cost:#A34620; --cost-soft:#A3462014;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --body:'Public Sans',-apple-system,'Segoe UI',sans-serif;
+    --display:'Fraunces',Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#191B17; --card:#22251F; --card2:#282B24;
+      --ink:#E8E6DC; --ink2:#A3A797; --ink3:#7C8071;
+      --line:#3A3D34; --line2:#4A4D42;
+      --accent:#3BA97C; --accent-soft:#3BA97C22;
+      --cost:#C97647; --cost-soft:#C9764722;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#191B17; --card:#22251F; --card2:#282B24;
+    --ink:#E8E6DC; --ink2:#A3A797; --ink3:#7C8071;
+    --line:#3A3D34; --line2:#4A4D42;
+    --accent:#3BA97C; --accent-soft:#3BA97C22;
+    --cost:#C97647; --cost-soft:#C9764722;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:var(--body); font-size:15.5px; line-height:1.6;
+    margin:0; padding:0;
+  }
+  .wrap{max-width:880px; margin:0 auto; padding:56px 28px 80px}
+  .eyebrow{
+    font-family:var(--mono); font-size:11.5px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--accent);
+    margin:0 0 14px;
+  }
+  h1{
+    font-family:var(--display); font-weight:600; font-size:44px;
+    line-height:1.08; letter-spacing:-.01em; margin:0 0 18px; text-wrap:balance;
+  }
+  .lede{font-size:18px; line-height:1.55; color:var(--ink); max-width:62ch; margin:0 0 6px}
+  .lede strong{color:var(--accent)}
+  h2{
+    font-family:var(--display); font-weight:600; font-size:25px;
+    line-height:1.2; margin:64px 0 6px; text-wrap:balance;
+  }
+  .kicker{
+    font-family:var(--mono); font-size:11px; font-weight:600;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink3);
+    margin:60px 0 -2px;
+  }
+  .kicker + h2{margin-top:6px}
+  p{max-width:66ch; margin:10px 0; color:var(--ink)}
+  p.sub{color:var(--ink2)}
+  figure{margin:26px 0}
+  figcaption{font-size:13px; color:var(--ink2); margin-top:10px; max-width:70ch}
+  svg{max-width:100%; height:auto; display:block}
+  .svg-scroll{overflow-x:auto}
+  .svg-scroll svg{min-width:640px}
+
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:22px 0}
+  .tile{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:16px 16px 13px}
+  .tile .num{font-family:var(--mono); font-size:27px; font-weight:600; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+  .tile .num.good{color:var(--accent)}
+  .tile .num.bad{color:var(--cost)}
+  .tile .lbl{font-size:12.5px; color:var(--ink2); line-height:1.4; margin-top:4px}
+
+  .jobs{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:22px 0}
+  @media (max-width:640px){ .jobs{grid-template-columns:1fr} }
+  .job{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:18px}
+  .job .share{font-family:var(--mono); font-size:22px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+  .job .share small{font-size:12px; font-weight:500; color:var(--ink3); letter-spacing:.05em}
+  .job h3{font-family:var(--body); font-weight:700; font-size:15px; margin:2px 0 8px}
+  .job .meter{height:5px; background:var(--card2); border-radius:3px; margin:10px 0 12px; overflow:hidden}
+  .job .meter i{display:block; height:100%; background:var(--accent); border-radius:3px}
+  .job p{font-size:13.5px; color:var(--ink2); margin:0 0 8px; line-height:1.5}
+  .job .lever{
+    font-size:13px; padding:9px 11px; border-radius:5px;
+    background:var(--accent-soft); color:var(--ink); line-height:1.45;
+  }
+  .job .lever b{color:var(--accent)}
+
+  .ledger{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:22px 0}
+  @media (max-width:640px){ .ledger{grid-template-columns:1fr} }
+  .side{border:1px solid var(--line); border-radius:6px; overflow:hidden}
+  .side .head{
+    font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.12em;
+    text-transform:uppercase; padding:10px 16px; border-bottom:1px solid var(--line);
+  }
+  .side.gain .head{background:var(--accent-soft); color:var(--accent)}
+  .side.check .head{background:var(--cost-soft); color:var(--cost)}
+  .side ul{list-style:none; margin:0; padding:8px 16px 12px}
+  .side li{padding:8px 0; border-bottom:1px dashed var(--line); font-size:14px; line-height:1.45}
+  .side li:last-child{border-bottom:none}
+  .side .v{font-family:var(--mono); font-weight:600; font-variant-numeric:tabular-nums}
+  .side.gain .v{color:var(--accent)}
+  .side.check .v{color:var(--cost)}
+  .footnote{font-size:13px; color:var(--ink2); max-width:72ch}
+
+  .seq{margin:22px 0; padding:0; list-style:none; counter-reset:step}
+  .seq li{
+    position:relative; padding:0 0 18px 44px; counter-increment:step;
+    border-left:1px solid var(--line); margin-left:14px;
+  }
+  .seq li:last-child{border-left-color:transparent; padding-bottom:0}
+  .seq li::before{
+    content:counter(step); position:absolute; left:-15px; top:-2px;
+    width:28px; height:28px; border-radius:50%;
+    background:var(--card); border:1px solid var(--line2);
+    font-family:var(--mono); font-size:12.5px; font-weight:600;
+    display:flex; align-items:center; justify-content:center; color:var(--ink);
+  }
+  .seq b{font-weight:700}
+  .seq p{font-size:14px; color:var(--ink2); margin:3px 0 0; max-width:64ch}
+
+  .callout{
+    border-left:3px solid var(--accent); background:var(--card);
+    padding:14px 18px; border-radius:0 6px 6px 0; margin:24px 0; max-width:72ch;
+  }
+  .callout.warn{border-left-color:var(--cost)}
+  .callout p{margin:4px 0; font-size:14px}
+  .src{margin-top:70px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink3); line-height:1.7}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Zero Alerts · Dwelling Age 101+</p>
+  <h1>The Dwelling Age Thesis</h1>
+  <p class="lede">Do the underwriter's four jobs automatically, exactly the way they do them. Then turn the alert off. If the duplication is faithful, <strong>nothing bad happens</strong> — and about 115 policies a month stop dying at a roadblock.</p>
+
+  <figure>
+    <div class="svg-scroll">
+    <svg viewBox="0 0 920 250" role="img" aria-label="The loop: weigh the alert, and if the sized risk is over tolerance, automate an underwriter job and weigh again; once under tolerance, remove the alert. The residual post-bind rate continues and becomes the next problem.">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+        </marker>
+        <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+      <g fill="none" stroke="currentColor" stroke-width="1.4" color="var(--ink)">
+        <!-- WEIGH -->
+        <rect x="20" y="60" width="170" height="64" rx="6"/>
+        <!-- gate diamond -->
+        <path d="M285 55 L360 92 L285 129 L210 92 Z"/>
+        <!-- AUTOMATE -->
+        <rect x="240" y="180" width="190" height="56" rx="6"/>
+        <!-- REMOVE -->
+        <rect x="450" y="60" width="170" height="64" rx="6" stroke="var(--accent)" stroke-width="2"/>
+        <!-- RESIDUAL -->
+        <rect x="700" y="60" width="200" height="64" rx="6" stroke-dasharray="5 4"/>
+      </g>
+      <g fill="currentColor" color="var(--ink)" font-family="IBM Plex Mono,monospace" font-size="12.5" font-weight="600">
+        <text x="105" y="86" text-anchor="middle">WEIGH</text>
+        <text x="285" y="88" text-anchor="middle" font-size="11">UNDER LaNae's</text>
+        <text x="285" y="102" text-anchor="middle" font-size="11">TOLERANCE?</text>
+        <text x="335" y="205" text-anchor="middle">AUTOMATE A UW JOB</text>
+        <text x="535" y="86" text-anchor="middle" fill="var(--accent)">REMOVE ALERT</text>
+        <text x="800" y="86" text-anchor="middle">RESIDUAL LANE</text>
+      </g>
+      <g fill="currentColor" color="var(--ink2)" font-family="Public Sans,sans-serif" font-size="11">
+        <text x="105" y="104" text-anchor="middle">machine prices the alert</text>
+        <text x="105" y="117" text-anchor="middle">binds vs NOC/NOE/premium</text>
+        <text x="335" y="222" text-anchor="middle">roof dial · pre-fill · attestations</text>
+        <text x="535" y="104" text-anchor="middle">+115 binds/mo</text>
+        <text x="535" y="117" text-anchor="middle">2,200 reviews freed</text>
+        <text x="800" y="104" text-anchor="middle">4.5 NOC · 3.9 fixes per 100</text>
+        <text x="800" y="117" text-anchor="middle">the next problem, not this one</text>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="1.4" color="var(--ink)">
+        <line x1="190" y1="92" x2="204" y2="92" marker-end="url(#ar)"/>
+        <!-- no branch: gate down to automate -->
+        <path d="M285 129 L285 208 L436 208" marker-end="url(#ar)"/>
+        <!-- loop back: automate to weigh -->
+        <path d="M240 208 L105 208 L105 130" marker-end="url(#ar)"/>
+      </g>
+      <g fill="none" stroke="var(--accent)" stroke-width="1.8" color="var(--accent)">
+        <line x1="360" y1="92" x2="444" y2="92" marker-end="url(#arg)"/>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="1.4" color="var(--ink2)">
+        <line x1="620" y1="92" x2="694" y2="92" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+      </g>
+      <g font-family="Public Sans,sans-serif" font-size="11" fill="currentColor">
+        <text x="300" y="150" color="var(--ink2)" fill="currentColor">no — too costly to remove</text>
+        <text x="168" y="200" text-anchor="end" fill="currentColor" color="var(--ink2)">re-weigh</text>
+        <text x="402" y="82" fill="var(--accent)" font-weight="600">yes</text>
+        <text x="657" y="82" text-anchor="middle" fill="currentColor" color="var(--ink2)">stays</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>The loop. The weighing machine is the scale; automating the underwriter's jobs moves the weights. The machine comes first — it replaces the live test nobody has appetite for.</figcaption>
+  </figure>
+
+  <p class="kicker">Step 0 · Today</p>
+  <h2>The alert kills business nobody ever looked at</h2>
+  <p class="sub">Out of 100 quotes whose only obstacle is the dwelling age alert:</p>
+
+  <figure>
+    <svg viewBox="0 0 860 96" role="img" aria-label="Of 100 age-alert-only quotes, 63 die without anyone looking, 21 are referred but do not bind, 16 bind.">
+      <g font-family="IBM Plex Mono,monospace" font-size="13" font-weight="600">
+        <rect x="0" y="26" width="529" height="34" rx="4" fill="currentColor" opacity=".16"/>
+        <rect x="533" y="26" width="176" height="34" rx="4" fill="currentColor" opacity=".34"/>
+        <rect x="713" y="26" width="134" height="34" rx="4" fill="var(--accent)"/>
+        <text x="6" y="16" fill="currentColor">63 die with nobody ever looking</text>
+        <text x="533" y="16" fill="currentColor">21 referred, don't bind</text>
+        <text x="847" y="82" text-anchor="end" fill="var(--accent)">16 bind</text>
+      </g>
+    </svg>
+    <figcaption>The loss is upstream of the underwriter: 55% of these quotes are never even referred — the roadblock scares them off before a human sees anything. Referrals that do get approved issue at 46 to 51%.</figcaption>
+  </figure>
+
+  <div class="tiles">
+    <div class="tile"><div class="num bad">2,200</div><div class="lbl">forced UW desk reviews per month</div></div>
+    <div class="tile"><div class="num">8.4%</div><div class="lbl">of asked referrals rejected — the gate's real defense (82% of those are commercial, historic, or unit-count, not age)</div></div>
+    <div class="tile"><div class="num bad">~115</div><div class="lbl">bound policies per month the alert costs us (range 50–175)</div></div>
+  </div>
+
+  <p class="kicker">Step 1 · Automate</p>
+  <h2>The four jobs the underwriter actually does</h2>
+  <p class="sub">n = 10,428 analyzable approvals. Every job already has a lever.</p>
+
+  <div class="jobs">
+    <div class="job">
+      <div class="share">46.5<small> %</small></div>
+      <h3>Approve, touching nothing</h3>
+      <div class="meter"><i style="width:46.5%"></i></div>
+      <p>No change of any kind. The rubber stamp — but you only find out which 46.5% by reviewing all of them.</p>
+      <div class="lever"><b>Lever:</b> auto-approve, once the other three jobs run first. Free after the rest exist.</div>
+    </div>
+    <div class="job">
+      <div class="share">25.3<small> %</small></div>
+      <h3>Add the roof exclusion</h3>
+      <div class="meter"><i style="width:25.3%"></i></div>
+      <p>14.0% exclusion only, 11.3% exclusion plus edits. The robot applies it to 3.5 per 100 of these homes; underwriters hand-apply 21.3. A 6:1 gap.</p>
+      <div class="lever"><b>Lever:</b> lower the imagery-score bar for old homes. UW sets the dial: score 90+ catches 33% of their hand-applies, 60+ catches 84%.</div>
+    </div>
+    <div class="job">
+      <div class="share">28.2<small> %</small></div>
+      <h3>Fix our own data</h3>
+      <div class="meter"><i style="width:28.2%"></i></div>
+      <p>Corrections without a roof exclusion. Six fields carry ~90% of them — and 65 to 79% of UW fixes land on pre-fill the agent never touched. It's our feed that's wrong.</p>
+      <div class="lever"><b>Lever:</b> source data the way UWs do (LandGlide-style APIs; bake-off underway). Keeps the $310K/yr of corrections by making them pre-bind.</div>
+    </div>
+    <div class="job">
+      <div class="share">8.4<small> % rejected</small></div>
+      <h3>Run the soft checks</h3>
+      <div class="meter"><i style="width:8.4%"></i></div>
+      <p>Commercial use, historic district, sober living. This is where the real "no" lives — 82% of rejections.</p>
+      <div class="lever"><b>Lever:</b> agent attestation questions now; Spotlight LLM signals ~October. Agents prefer upfront questions to a referral.</div>
+    </div>
+  </div>
+
+  <p class="kicker">Step 2 · Flip the switch</p>
+  <h2>What we expect when the alert goes dark</h2>
+
+  <div class="ledger">
+    <div class="side gain">
+      <div class="head">The upside</div>
+      <ul>
+        <li><span class="v">+115</span> bound policies / month (range +50 to +175)</li>
+        <li><span class="v">2,200</span> desk reviews / month eliminated</li>
+        <li><span class="v">$310K</span> / yr of UW premium corrections kept — automated, not lost</li>
+      </ul>
+    </div>
+    <div class="side check">
+      <div class="head">What must hold</div>
+      <ul>
+        <li>NOCs: <span class="v">±0</span> — raw removal would add ~25/mo (4.5 → 6.5 per 100)</li>
+        <li>UW corrective endorsements: <span class="v">±0</span> — raw removal would add ~30/mo (3.9 → 7.5 per 100)</li>
+        <li>Loss ratio: <span class="v">unknown</span> — the weight the machine still can't price</li>
+      </ul>
+    </div>
+  </div>
+  <p class="footnote">Why ±0 is credible: ~3/4 of the raw removal gap (1.48 of 1.94 NOCs per 100) sits in exactly the categories the four jobs cover — roof, eligibility, data accuracy. The honest caveat: without the jobs, the true un-reviewed rate projects to 7–11 per 100, because the 101+ book averages 117 years old and risk ramps +22.8% per decade.</p>
+
+  <p class="kicker">Step 3 · The honest part</p>
+  <h2>The residual doesn't go away — and it was never the alert's</h2>
+  <p class="sub">Even with an underwriter reviewing every single bind, the reviewed book still runs 4.5 NOCs and 3.9 corrective fixes per 100. Duplicating the underwriter keeps that rate. Here's why the review can't see it coming:</p>
+
+  <figure>
+    <div class="svg-scroll">
+    <svg viewBox="0 0 920 230" role="img" aria-label="Timeline from bind: the desk review happens before bind with no eyes on the property; the inspection is ordered day 2 and completes day 21; moderate findings lead to a corrective endorsement about two weeks later; severe findings lead to UAR then cancellation, median day 56 to 65. Zero NOCs occur before day 21.">
+      <defs>
+        <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+      <!-- timeline spine -->
+      <g color="var(--ink)" stroke="currentColor" fill="none" stroke-width="1.4">
+        <line x1="30" y1="70" x2="890" y2="70" marker-end="url(#ar2)"/>
+      </g>
+      <!-- ticks -->
+      <g color="var(--ink)" stroke="currentColor" stroke-width="1.4">
+        <line x1="120" y1="62" x2="120" y2="78"/>
+        <line x1="230" y1="62" x2="230" y2="78"/>
+        <line x1="420" y1="62" x2="420" y2="78"/>
+        <line x1="560" y1="62" x2="560" y2="78"/>
+        <line x1="760" y1="62" x2="760" y2="78"/>
+      </g>
+      <g font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" fill="currentColor" color="var(--ink)">
+        <text x="120" y="52" text-anchor="middle">BIND · d0</text>
+        <text x="230" y="52" text-anchor="middle">d2</text>
+        <text x="420" y="52" text-anchor="middle">d21</text>
+        <text x="560" y="52" text-anchor="middle">~d35</text>
+        <text x="760" y="52" text-anchor="middle">d56–65</text>
+      </g>
+      <!-- desk review zone -->
+      <g color="var(--ink2)">
+        <rect x="30" y="88" width="90" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <text x="75" y="107" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="11" fill="currentColor">desk review</text>
+        <text x="75" y="136" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="11" fill="currentColor">no eyes on the</text>
+        <text x="75" y="149" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="11" fill="currentColor">property, ever</text>
+      </g>
+      <g font-family="Public Sans,sans-serif" font-size="11.5" fill="currentColor" color="var(--ink2)">
+        <text x="230" y="96" text-anchor="middle">inspection</text>
+        <text x="230" y="109" text-anchor="middle">ordered</text>
+        <text x="420" y="96" text-anchor="middle">inspection completes —</text>
+        <text x="420" y="109" text-anchor="middle">first eyes on the property</text>
+      </g>
+      <g font-family="IBM Plex Mono,monospace" font-size="11" fill="var(--cost)">
+        <text x="420" y="128" text-anchor="middle">future-NOC homes score 125</text>
+        <text x="420" y="141" text-anchor="middle">clean book scores 10</text>
+      </g>
+      <!-- branches -->
+      <g color="var(--ink)" stroke="currentColor" fill="none" stroke-width="1.4">
+        <path d="M430 155 L560 155" marker-end="url(#ar2)"/>
+        <path d="M430 190 L745 190" marker-end="url(#ar2)"/>
+      </g>
+      <g font-family="Public Sans,sans-serif" font-size="11.5" fill="currentColor" color="var(--ink2)">
+        <text x="437" y="150">moderate findings (score 80–100)</text>
+        <text x="437" y="185">severe findings (125+) · UAR letter · response window</text>
+      </g>
+      <g font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600">
+        <text x="568" y="159" fill="var(--cost)">CORRECTIVE FIX</text>
+        <text x="753" y="194" fill="var(--cost)">CANCELLATION</text>
+      </g>
+      <g font-family="Public Sans,sans-serif" font-size="11" fill="currentColor" color="var(--ink3)">
+        <text x="120" y="215">zero NOCs happen before day 21 — every single one follows a completed inspection</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>The residual is the post-bind inspection lane. The approvals that later blew up got the same edit intensity as the ones that didn't — there is no rubber-stamp fingerprint. The underwriter isn't missing anything visible; the desk review has no eyes on the property.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <p><b>This is the next frontier, not a reason to keep the alert.</b> ~60% of residual NOCs are general-condition findings, ~20% liability hazards (trampolines, animals, structures). Shrinking them means moving condition signal pre-bind: imagery at quote time, attestation questions. Worth doing whether or not the alert lives.</p>
+    <p>One exception proves the roof lever: of the 12 roof-condition NOCs on the reviewed book, zero had the roof exclusion at bind. The one lane the review could have caught, it skipped — and the dial fixes exactly that.</p>
+  </div>
+
+  <p class="kicker">Step 4 · Sequence</p>
+  <h2>Weigh first. Test maybe never.</h2>
+  <ol class="seq">
+    <li><b>Build the weighing machine (with David Curry).</b>
+      <p>Nobody has appetite for "pick 7 states and eat the NOCs." Sizing the risk on paper replaces discovery-by-test. Inputs: bind LTV, NOC cost, UW premium per alert.</p></li>
+    <li><b>Get LaNae's tolerance — in a named unit.</b>
+      <p>74% of NOCs cure, so "letters sent" and "policies lost" differ 4x. Proposal: uncured cancellations per 100 binds, 90 days.</p></li>
+    <li><b>Automate the four jobs until the sized risk beats the tolerance.</b>
+      <p>Roof dial and pre-fill sourcing are ready to start; attestations next; Spotlight signals ~October.</p></li>
+    <li><b>Turn the alert off. Keep watching the residual.</b>
+      <p>A live A/B becomes optional confirmation at the end — not the way we find out.</p></li>
+  </ol>
+
+  <p class="src">Numbers validated 2026-08-19 against: Dwelling-Age Pre-Bind Review Findings · Two Houses · Why Old Roofs Slip Through · What Must Be True · the 8/16 post-bind snapshots (db 235). NOC = UW cancellation event, gross of cure; corrective fix = UW endorsement transaction, not the statutory NOE letter. Private working document — Zero Alerts project.</p>
+</div>
