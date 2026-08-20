@@ -13,7 +13,7 @@ Each job gets its own folder here as we scope and build it. Duplicate all four, 
 
 ## Folders
 
-- `roof-dial/` — **job 1, scoped 2026-08-20.** Where should the robot's score bar sit so it captures most of the exclusions underwriters hand-apply, without excluding roofs an underwriter would have left alone? Scope, verified data inventory, extract SQL, and a runnable sweep tool. Status: data verified, analysis pending.
+- `roof-dial/` — **job 1, scoped 2026-08-20.** Where should the automation's score bar sit so it captures most of the exclusions underwriters hand-apply, without excluding roofs an underwriter would have left alone? Scope, verified data inventory, extract SQL, and a runnable sweep tool. Status: data verified, analysis pending.
 - (jobs 2 to 4: not yet scoped; the pre-fill bake-off covers part of job 2)
 
 ## Relation to the rest of the repo
