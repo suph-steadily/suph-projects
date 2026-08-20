@@ -169,6 +169,7 @@ Why this replaces the 7-state 50/50 test: "pick seven states and eat the NOCs" h
 - [ ] **Ask LaNae her tolerance number** (or make it the explicit ask inside the Thursday proposal).
 - [ ] Meet David Curry: scope the bind/NOC model (bind LTV, NOC cost, UW premium per alert).
 - [ ] With Curry: expand roof-exclusion threshold to bottom 20% for older dwellings.
+  Scoped 8/20: `dwelling-alert/roof-dial/SCOPE.md` (data verified, sweep tool ready; bound 101+ book is 94.5% hand-applied).
 - [ ] Check Texas NOC/NOE data for roof-model impact.
 - [ ] Build the LandGlide (or equivalent) pre-fill sourcing case, starting with 101+ homes; get SmartSource pricing.
 - [ ] Explore the premium age modifier with actuarial.
