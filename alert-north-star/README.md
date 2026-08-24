@@ -94,7 +94,7 @@ What removal costs and gains (the 91-100 sister cohort's rates applied to the 10
 - **Darren's early data: 3 NOCs = you lose the agent permanently** (not just the policy). First NOC that proceeds to cancellation comes with **~20% drop in future buys from that agent**. Early data points, not published figures.
 - **LaNae's two reasons NOCs sting:** the bait-and-switch perception (the deal changed after bind) and the remediation burden (legally required to specify exactly what must be fixed).
 - UAR was tried as a pre-cancellation softener and abandoned: agents read it as a cancellation anyway.
-- We know the three-strike rule of thumb but not the full underlying mechanism. The scratch-darren curves (74% of NOCs cure; cured NOCs cost ~0 to -2% per event vs. cancellations at -20%, most of it landing right away) are the start of the evidence.
+- We know the three-strike rule of thumb but not the full underlying mechanism. The scratch-darren curves (v8, 8/19: 74% of NOCs cure; cured NOCs cost ~0 to -2% per event vs. cancellations at -20%) are the start of the evidence. Correction 8/24: the front-loading is in DOSE, not time — the first meaningful cancellation does most of the damage, and the damage then stays flat for 12+ months (a recurring annual flow while the relationship stays broken), it does not fade after an early hit.
 - The optimistic logic: if we do the UW's jobs really well, **the NOC rate should not change** relative to today. The same interventions happen, just automated before bind. Leftover NOCs exist today with a UW in every single 101+ journey, so they are a standing optimization target **whether or not the alert lives.**
 
 ## 6b. What dwelling-age NOCs and NOEs are actually FOR
@@ -186,7 +186,7 @@ Why this replaces the 7-state 50/50 test: "pick seven states and eat the NOCs" h
 - A NOC issued is not a policy lost: **74% of NOCs cure**, and 23.3% of inspection-NOC policies reinstate within 90 days. Every NOC number must state its stage: letters/events (all of them, cured or not) or cancellations that stuck (uncured).
 - Bare "NOC" elsewhere in the company includes non-payment cancellations. Always say "underwriting" when quoting a rate.
 - Salesforce cannot referee any of this: the 'UAR/NOC Approval' category cannot separate a UAR from a NOC, over-counts by ~20%, and misses ~50% of inspection-NOC policies. Counts come from the eventstore (the system's raw log of every action).
-- Darren's metrics, precisely: his agent-loss result keys to the first UNCURED cancellation (~-20% of that agent's production for a year, most of it landing early); cured NOCs price at ~0 to -2% per event. The "3 NOCs = agent gone" soundbite never says 3 NOCs out of what, over what period; park it until he names the unit.
+- Darren's metrics, precisely: his agent-loss result keys to the first UNCURED cancellation, ~-20% of that agent's production, and NOT just for a year — v8 shows the suppression flat through month 12 and persisting past month 15, a recurring annual flow while the relationship stays broken. "Front-loaded" means the FIRST cancellation does most of the damage (dose), not that the damage fades with time. Cured NOCs price at ~0 (book-level) to -2.1% per event (within-agent panel). The "3 NOCs = agent gone" soundbite never says 3 NOCs out of what, over what period; park it until he names the unit.
 
 ### Definitions to lock with LaNae before quoting numbers Thursday
 
