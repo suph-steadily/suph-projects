@@ -130,6 +130,31 @@ Caveats: some cells rest on very few events (the twin's roof row = 12 events), 9
 - The leftover NOEs follow a simple rule: **the worse the inspection finding, the harsher the action.** Moderate scores (80-100) get a corrective endorsement within ~2 weeks of inspection (trampoline 25, private structures 30, roof ACV (actual cash value) 11, animal liability 4 — classic exterior findings); severe scores (125+) get the UAR/NOC track.
 - Implication: shrinking the leftover NOC rate means **getting condition information before bind** (imagery at quote time, attestation questions for trampolines/animals/structures) or accepting it as the cost of writing old homes. Either way it's a different problem than the alert.
 
+### 6b-ii. The item-level cut: what the letters actually say (pulled 2026-08-26)
+
+The table above uses the Salesforce cancellation sub-reason (six coarse buckets). This cut goes one level deeper: the actual reason codes on the UAR letters themselves, joined from `dbt_mga.mga_uw_action_required_events` (the same source as Darren's reason census) onto the 8/16 cohort snapshots. Window: UAR sent within 90 days of bind. Grain: reason occurrences (a letter carrying several reasons counts once per reason), "cancelled" = the UAR track ended in a confirmed UW cancellation.
+
+Reconciliation: 83 twin policies UW-cancelled within 90d on this definition = 6.8 per 100 vs the published 6.46 (first-cancellation-is-Inspection definition); reviewed 4.97 vs 4.52. Same shape, slightly wider net.
+
+**The twin (unreviewed 91-100, n=1,223) — what an unreviewed old-home book gets knocked for.** 221 policies (18 per 100) got at least one UAR; 90 ended in cancellation. The 165 cancellation reason occurrences, mapped through Darren's tiers (categorization.json v9):
+
+| Tier | Occurrences | Share of classified | Applied to the +25 NOCs/mo | Named items (count) |
+|---|---|---|---|---|
+| T1 fix-at-renewal | 10 | 7% | ~2/mo | Townhouse 3, Residence Type Discrepancy 3, Lack in Pride in Ownership 2, Year-Built Discrepancy 1, Adjoining Business 1 |
+| T2 toothless | 87 | 57% | ~14/mo | Dwelling Damaged 21, Renovations 12, Debris 7, Railings 6, GL Hazard 5, Trampoline Ack 5, Barred Openings 5, PS Exclusion Ack 4, Boarded Windows 4, rest 18 |
+| T3 keep-cancelling | 56 | 37% | ~9/mo | Roof Exclusion Ack 15, Roof Condition 12, Fascia/Soffit 8, Transition to DP1 6, Ineligible Named Insured 4+1, Misrepresentation 2, Business on Premise 2, rest 6 |
+| Unclassified | 12 | — | — | "Other" catch-all 7, no reason recorded 5 |
+
+This reproduces the 8/25 message to Will (~15/mo livable = ~2-3 T1 + ~12-13 T2; ~10/mo real teeth) and now names the items.
+
+Three things the item level shows that the coarse buckets could not:
+
+1. **We do not knock for the six pre-filled data fields.** Data-discrepancy reasons (residence type, year built, square footage) = 4 of 165 occurrences (2.4%), zero of them square footage, and all Tier 1 anyway. Human attribute-lookup (the VA / low-judgement lane) addresses the 28.2% data-correction job and its ~$310K/yr premium, but it prevents essentially none of the NOCs.
+2. **Even the real teeth are mostly roof-shaped.** 36 of the 56 T3 occurrences (64%) are roof items (Roof Exclusion Acknowledgement unsigned, Roof Condition, Fascia/Soffit, shingle growth) — exactly the roof-dial lever. The non-roof teeth are ~20 occurrences: DP1 transitions, ineligible named insured, misrepresentation, business on premises — the soft-check / attestation lever.
+3. **The reviewed book gets knocked for the same things, only more T2-heavy** (reviewed 101+ classified mix: T1 2% / T2 75% / T3 23%). The review does not change what the inspection finds; it thins the roof and eligibility tail before bind.
+
+Caveats: occurrence grain, not policies (a multi-reason letter counts in each row); ~7% of twin cancellation occurrences carry no useful reason; cancellation itself not capped at 90d (only the letter send is); small cells everywhere (read the item ranks, not the third digit). Pull SQL: join `mga_uw_action_required_events.insurance_policy_number = cohort.o_vis_pol_num`, ARRAY JOIN `reason_types_arr` (the short code names; `reason_texts_arr` is the full letter paragraph), cancelled = `min_occurred_at_cancellation_underwriting_success IS NOT NULL`.
+
 ## 7. Missing dots and risks (the honest list)
 
 - **The alert also scares off bad risks (the "selection effect").** Our projection assumes the same kinds of quotes show up after removal. They may not: the alert deters bad risks from ever submitting. So the NOC projection is a **floor**, not an estimate.
